@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://StasSytnykov.github.io/team-project",
+  "homepage": "https://StasSytnykov.github.io/team-project-goit",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-project/"
+    "build": "parcel build src/*.html --public-url /team-project-goit/"
   },
   "repository": {
     "type": "git",
