@@ -1,0 +1,25 @@
+.nav__list{
+    height:14px;
+    display: flex;
+}
+
+.nav__list-item{
+    height: 100%;
+    list-style: none;
+    margin-left: 40px;
+}
+.nav__list-link{
+    font-family: 'Roboto';
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgb(114, 23, 23);
+}
+.emphasis{
+    display: block;
+    height: 3px;
+    width: 100%;
+    color:black;
+    background-color: #FF6B08;
+}
