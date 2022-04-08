@@ -7,9 +7,20 @@
         <li class="nav__list-item"><a href="">My Library</a></li>
       </ul>
     </nav>
-    <div class="search">
-      <input type="text" name="searchQuery" class="nav__search" placeholder="Поиск фильмов" />
-      <!--<svg></svg>-->
-    </div>
+    <form class="search-form" id="search-form">
+      <div class="wrap">
+        <input
+          class="input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Искать фильмы..."
+        />
+        <button class="search-btn" type="submit">
+          Search
+          <!--<svg></svg> -->
+        </button>
+      </div>
+    </form>
   </container>
 </header>
