@@ -15,4 +15,4 @@ module.exports="/team-project-goit/img_not_found.7ad9f745.jpg";
 },{"./refs":"VyiV","./api-service":"hC31","./moviesMarkup":"QfT3"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-goit/src.82c8ee5a.js.map
+//# sourceMappingURL=/team-project-goit/src.c29c4c77.js.map
