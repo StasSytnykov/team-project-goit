@@ -26,6 +26,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+}
+
+.pagination_arrow-svg {
+  fill: #000000;
 }
 
 .pagination_page {
@@ -41,10 +46,18 @@
   transition: all 0.3s ease;
 }
 
-.curent-page,
-.pagination_page:hover,
+.current-page,
+.number:hover,
 .pagination_arrow:hover {
   background: #ff6b08;
   color: #ffffff;
   fill: #ffffff;
+}
+
+.hidden {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
