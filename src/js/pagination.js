@@ -73,3 +73,4 @@ function createPagination(totalPages, pPage){
   paginationRef.innerHTML = liTag; 
   return liTag;
 }
+
