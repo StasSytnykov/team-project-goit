@@ -12,9 +12,11 @@ module.exports="/team-project-goit/img_not_found.7ad9f745.jpg";
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("../js/images/img_not_found.jpg"));function t(e){return e&&e.__esModule?e:{default:e}}function n(t){return t.map(({title:t,release_date:n,genre_ids:i,poster_path:s})=>{const a=new Date(n).getFullYear();let r=e.default;return s&&(r=`https://image.tmdb.org/t/p/w500${s}`),`<div class="photo-card">\n        <div class="thumb">\n            <img class="image" src="https://image.tmdb.org/t/p/w500${r}"\n              alt="${t}"\n              loading="lazy"\n              width="309"\n              height="449" />\n        </div>\n        <div class="info">\n          <h5 class="info-item">${t}\n          </h5>\n          <p class="info-item">${i}\n          </p>\n          <p class="info-item">${a}\n          </p>\n        </div>\n    </div>`}).join("")}var i=n;exports.default=i;
 },{"../js/images/img_not_found.jpg":"RRB9"}],"HUSp":[function(require,module,exports) {
 "use strict";var e=u(require("./refs")),r=u(require("./api-service")),t=u(require("./moviesMarkup"));function u(e){return e&&e.__esModule?e:{default:e}}const n=new r.default;function s(e){e.preventDefault(),n.query=e.currentTarget.elements.searchQuery.value,n.fetchMovieBySearch().then(e=>{console.log(e),a(e)})}function a(r){const u=(0,t.default)(r.results);console.log(u),e.default.galleryMovies.innerHTML=u}e.default.searchBtn.addEventListener("submit",s);
-},{"./refs":"VyiV","./api-service":"hC31","./moviesMarkup":"QfT3"}],"Y5dV":[function(require,module,exports) {
+},{"./refs":"VyiV","./api-service":"hC31","./moviesMarkup":"QfT3"}],"RSqK":[function(require,module,exports) {
+const e=document.querySelector(".modal__close-btn"),n=document.querySelector(".backdrop");function d(){window.removeEventListener("keydown",c),n.classList.add("is-hidden")}function t(e){e.currentTarget===e.target&&n.classList.add("is-hidden")}function c(e){"Escape"===e.code&&d(e)}e.addEventListener("click",d),n.addEventListener("click",t),window.addEventListener("keydown",c);
+},{}],"Y5dV":[function(require,module,exports) {
 
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie"),require("modern-normalize/modern-normalize.css");
-},{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp","modern-normalize/modern-normalize.css":"Y5dV"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-goit/src.16f9b229.js.map
+"use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie"),require("./js/modal"),require("modern-normalize/modern-normalize.css");
+},{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp","./js/modal":"RSqK","modern-normalize/modern-normalize.css":"Y5dV"}]},{},["Focm"], null)
+//# sourceMappingURL=/team-project-goit/src.cf1ea38b.js.map
