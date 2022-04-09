@@ -1,0 +1,11 @@
+.gallery-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-card {
+  margin-top: 15px;
+  margin-left: 15px;
+  height: 100%;
+}
