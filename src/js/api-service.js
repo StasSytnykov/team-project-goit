@@ -9,13 +9,11 @@ export default class ApiService {
 
   fetchMovies(endpoint) {
     const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
-    return fetch(url)
-      .then(res => res.json())
-      .then(console.log);
+    return fetch(url).then(res => res.json());
   }
 
   fetchMovieBySearch() {
-    this.fetchMovies('search/movie');
+    return this.fetchMovies('search/movie');
   }
 
   fetchPopularMovie() {
