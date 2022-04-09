@@ -1,10 +1,11 @@
 <header>
-  <container
-    ><nav class="nav">
-      <a class="nav__logo" href=""><img src="" alt="" />Filmoteka</a>
+  <div class="container">
+    <nav class="nav">
+      <img class="img__logo" src="images/header/film.png" alt="" />
+      <a class="nav__logo">Filmoteka</a>
       <ul class="nav__list">
-        <li class="nav__list-item home"><a href="">Home</a></li>
-        <li class="nav__list-item library"><a href="">My Library</a></li>
+        <li class="nav__list-item home"><a class="nav__list-link" href="">Home</a></li>
+        <li class="nav__list-item library"><a class="nav__list-link" href="">My Library</a></li>
       </ul>
     </nav>
     <form class="search-form" id="search-form">
@@ -22,9 +23,13 @@
         </button>
       </div>
     </form>
-    <ul>
-      <li><button type="button" name="watched">Watched</button></li>
-      <li><button type="button" name="queue">queue</button></li>
+    <ul class="button-list">
+      <li class="button-list__item">
+        <button class="button-watched" type="button" name="watched">Watched</button>
+      </li>
+      <li class="button-list__item">
+        <button class="button-queue" type="button" name="queue">queue</button>
+      </li>
     </ul>
-  </container>
+  </div>
 </header>
