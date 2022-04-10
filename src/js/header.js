@@ -12,17 +12,17 @@ const libraryClick = (Event) => {
     containerHeader.style.backgroundImage = "url('../images/header/Header-library.jpg')";
     
 }
-const homeClick = (Event) => {
-    Event.preventDefault();
-    refs.spanLibrary.style.display = "none";
-    refs.spanHome.style.display = "block";
-    refs.libraryBtnList.classList.remove("button-list");
-    refs.libraryBtnList.classList.add("not-displayed");
-    refs.searchBtn.style.display = "block";
-    containerHeader.style.backgroundImage = "url('../images/header/header-mobile-bcg.jpg')";
+// const homeClick = (Event) => {
+//     Event.preventDefault();
+//     refs.spanLibrary.style.display = "none";
+//     refs.spanHome.style.display = "block";
+//     refs.libraryBtnList.classList.remove("button-list");
+//     refs.libraryBtnList.classList.add("not-displayed");
+//     refs.searchBtn.style.display = "block";
+//     containerHeader.style.backgroundImage = "url('../images/header/header-mobile-bcg.jpg')";
     
-}
+// }
 
 refs.libraryLi.addEventListener("click", libraryClick);
-refs.homeLi.addEventListener("click", homeClick);
+// refs.homeLi.addEventListener("click", homeClick);
 
