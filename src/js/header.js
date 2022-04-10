@@ -8,21 +8,11 @@ const libraryClick = (Event) => {
     refs.searchBtn.style.display = "none";
     refs.libraryBtnList.classList.remove("not-displayed");
     refs.libraryBtnList.classList.add("button-list");
-    
-    containerHeader.style.backgroundImage = "url('../images/header/Header-library.jpg')";
-    
-}
-const homeClick = (Event) => {
-    Event.preventDefault();
-    refs.spanLibrary.style.display = "none";
-    refs.spanHome.style.display = "block";
-    refs.libraryBtnList.classList.remove("button-list");
-    refs.libraryBtnList.classList.add("not-displayed");
-    refs.searchBtn.style.display = "block";
-    containerHeader.style.backgroundImage = "url('../images/header/header-mobile-bcg.jpg')";
-    
+    containerHeader.style.backgroundImage = "url('http://localhost:1234/Header-library.7557c1cd.jpg')";
+    //containerHeader.style.backgroundImage = "url('../images/header/Header-library.jpg')";
 }
 
+
+
 refs.libraryLi.addEventListener("click", libraryClick);
-refs.homeLi.addEventListener("click", homeClick);
 
