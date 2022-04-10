@@ -8,8 +8,7 @@ const libraryClick = (Event) => {
     refs.searchBtn.style.display = "none";
     refs.libraryBtnList.classList.remove("not-displayed");
     refs.libraryBtnList.classList.add("button-list");
-    
-    containerHeader.style.backgroundImage = "url('../images/header/Header-library.jpg')";
+    containerHeader.style.backgroundImage = "url('http://localhost:1234/Header-library.7557c1cd.jpg')";
     
 }
 const homeClick = (Event) => {
@@ -19,7 +18,7 @@ const homeClick = (Event) => {
     refs.libraryBtnList.classList.remove("button-list");
     refs.libraryBtnList.classList.add("not-displayed");
     refs.searchBtn.style.display = "block";
-    containerHeader.style.backgroundImage = "url('../images/header/header-mobile-bcg.jpg')";
+    containerHeader.style.backgroundImage = "url('http://localhost:1234/header-mobile-bcg.311d05cf.jpg')";
     
 }
 
