@@ -6,27 +6,36 @@ li,ul,a {
 }
 
 // Класс для скрытия кнопок/инпута 🔫
-.not-displayed{
- display: none;
-}
+// .not-displayed{
+//  //display: none;
+// }
 
 .content{
     background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url('../images/header/header-mobile-bcg.jpg');
-    // background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    // url('../images/header/library-header-mobile-bcg.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position:center ;
 @media screen and(min-width:768px){
     background-image:linear-gradient(to right,rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url('../images/header/header-tablet-bcg.jpg');
-    // background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    // url('../images/header/library-header-tablet-bcg.jpg');
 }
 @media screen and (min-width:1024px) {
     background-image:linear-gradient(to right,rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url('../images/header/header-desktop-bcg.jpg');
-    // background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    // url('../images/header/library-header-desktop-bcg.jpg');
 }
+}
+.library-content{
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header/library-header-mobile-bcg.jpg');
+    @media screen and(min-width:768px) {
+        background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header/library-header-tablet-bcg.jpg');
+    }
+    
+    @media screen and (min-width:1024px) {
+        margin-left: 39px;
+        margin-right: 39px;
+        background-image:linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), 
+        url('../images/header/library-header-desktop-bcg.jpg');
+    }
 }
 
 .container{
@@ -46,11 +55,6 @@ li,ul,a {
 @media screen and(min-width:768px) and (max-width:1023px){
    padding-top: 28px;
    }
-//    Нужно добавлять только при переходе на библиотеку в разширении 1024px
-//    @media screen and (min-width:1024px){
-//        margin-left: 39px;
-//        margin-right: 39px;
-//    }
 }
 
 .nav__list{
@@ -152,7 +156,7 @@ li,ul,a {
 }
 
 .button__list__library{
-    display: flex;
+    display: none;
     justify-content: center;
     width: 100%;
     margin-top: 58px;
