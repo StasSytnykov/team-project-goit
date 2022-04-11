@@ -1,26 +1,18 @@
+import refs from './refs';
 
-myRefs = {
-    library: document.querySelector(".library"),
-    home: document.querySelector(".home"),
-    spanHome: document.querySelector(".span-home"),
-    spanLibrary: document.querySelector(".span-library")
-
-}
-
+const containerHeader = document.querySelector(".container");
 const libraryClick = (Event) => {
     Event.preventDefault();
-    myRefs.spanHome.style.display = "none";
-    myRefs.spanLibrary.style.display = "block";
-    
-}
-const homeClick = (Event) => {
-    Event.preventDefault();
-    myRefs.spanLibrary.style.display = "none";
-    myRefs.spanHome.style.display = "block";
-    
+    refs.spanHome.style.display = "none";
+    refs.spanLibrary.style.display = "block";
+    refs.searchBtn.style.display = "none";
+    refs.libraryBtnList.classList.remove("not-displayed");
+    refs.libraryBtnList.classList.add("button-list");
+    containerHeader.style.backgroundImage = "url('http://localhost:1234/Header-library.7557c1cd.jpg')";
+    //containerHeader.style.backgroundImage = "url('../images/header/Header-library.jpg')";
 }
 
-myRefs.library.addEventListener("click", libraryClick);
-myRefs.home.addEventListener("click", homeClick);
 
+
+refs.libraryLi.addEventListener("click", libraryClick);
 
