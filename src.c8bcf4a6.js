@@ -25,4 +25,4 @@ module.exports="/team-project-goit/pagination.80fccd66.svg";
 },{"./refs":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie"),require("./js/modal"),require("modern-normalize/modern-normalize.css"),require("./js/pagination"),require("./js/render-home-page");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp","./js/modal":"RSqK","modern-normalize/modern-normalize.css":"Y5dV","./js/pagination":"o8lo","./js/render-home-page":"KyeZ"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-goit/src.2b0052e6.js.map
+//# sourceMappingURL=/team-project-goit/src.c8bcf4a6.js.map
