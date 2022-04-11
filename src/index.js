@@ -6,4 +6,5 @@ import './js/modal';
 import 'modern-normalize/modern-normalize.css';
 import './js/pagination';
 import './js/render-home-page';
+import './js/popularFilms';
 

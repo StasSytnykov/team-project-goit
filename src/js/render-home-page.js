@@ -3,7 +3,7 @@ import refs from './refs';
 const headerContainer = document.querySelector('.container');
 
 const onClickHomeBtn = () => {
-  headerContainer.innerHTML = `<nav class='nav'>
+    headerContainer.innerHTML = `<nav class='nav'>
     <img class='img__logo' src='./images/header/film.png' alt='' />
     <a class='nav__logo'>Filmoteka</a>
     <ul class='nav__list'>

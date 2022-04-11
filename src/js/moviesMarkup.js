@@ -1,4 +1,4 @@
-import emptyImg from '../js/images/img_not_found.jpg';
+import emptyImg from './images/img_not_found.jpg';
 import getGenres from './searchMovie';
 import genresArr from './searchMovie';
 
@@ -16,7 +16,7 @@ function makeMovieMarkup(movies) {
       }
       return `<div class="photo-card">
         <div class="thumb">
-            <img class="image" src="https://image.tmdb.org/t/p/w500${poster}"
+            <img class="image" src=${poster}
               alt="${title}"
               loading="lazy"
               width="309"
