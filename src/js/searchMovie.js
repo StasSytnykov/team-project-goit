@@ -12,6 +12,7 @@ function getMovie(e) {
   api
     .fetchMovieBySearch()
     .then(data => {
+      console.log(data);
       renderMovies(data);
     })
     .catch(err => handleError(err));
