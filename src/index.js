@@ -4,4 +4,6 @@ import './js/library';
 import './js/searchMovie';
 import './js/modal';
 import 'modern-normalize/modern-normalize.css';
+import './js/pagination';
 import './js/render-home-page';
+
