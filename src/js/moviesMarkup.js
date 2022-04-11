@@ -25,10 +25,12 @@ function makeMovieMarkup(movies) {
         <div class="info">
           <h5 class="info-item">${title}
           </h5>
-          <p class="info-item">${filteredGenresArr.join(', ')}, Other
+          <div class="info-item2">
+          <p class="info-item">${genre_ids}
           </p>
           <p class="info-item">${releaseYear}
           </p>
+          </div>
         </div>
     </div>`;
     })

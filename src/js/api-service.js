@@ -21,8 +21,14 @@ export default class ApiService {
   }
 
   fetchPopularMovie() {
-    this.fetchMovies('trending/all/day');
+    const url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(results => {
+        return results
+      });
   }
+
 
   get query() {
     return this.searchQuery;
