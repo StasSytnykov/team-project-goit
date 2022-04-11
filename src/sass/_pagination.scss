@@ -52,7 +52,9 @@
   color: #ffffff;
   fill: #ffffff;
 }
-
+.pagination_arrow:hover>.pagination_arrow-svg {
+  fill: #ffffff;
+}
 .hidden {
   display: none;
 
