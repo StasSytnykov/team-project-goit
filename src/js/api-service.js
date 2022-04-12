@@ -21,8 +21,14 @@ export default class ApiService {
   }
 
   fetchPopularMovie() {
-    this.fetchMovies('trending/all/day');
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(results => {
+        return results
+        });
   }
+
 
   get query() {
     return this.searchQuery;

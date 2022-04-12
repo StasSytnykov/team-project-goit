@@ -7,10 +7,12 @@
 }
 
 .footer a {
+    display: inline;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 16px;
     line-height: 19px;
     color: #545454;
+    text-decoration:underline;
 }
 
 .footer__section {
