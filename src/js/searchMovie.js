@@ -13,6 +13,8 @@ function getMovie(e) {
     .fetchMovieBySearch()
     .then(data => {
       console.log(data);
+      if (data.results.length === 0) {
+      }
       renderMovies(data);
     })
     .catch(err => handleError(err));
