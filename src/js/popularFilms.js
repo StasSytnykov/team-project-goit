@@ -11,7 +11,7 @@ function fetchPopularFilms() {
             .then(film => {
             const markup = filmTpl(film);
                 
-        refs.galleryMovies.innerHTML = markup;    
+        refs.filmContainer.innerHTML = markup;    
         })
 
 }

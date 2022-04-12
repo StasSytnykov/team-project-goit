@@ -1,3 +1,11 @@
+.thumb{
+width: 1024px;
+display: flex;
+flex-wrap: wrap;
+justify-content: left;
+margin: 0 auto 0;
+}
+
 .gallery-list__item {
     margin: 0 auto;
     margin-bottom: 20px;
@@ -29,7 +37,7 @@
     }
 }
 
-.gallery-list__img {
+.image {
     border-radius: 5px;
 }
 

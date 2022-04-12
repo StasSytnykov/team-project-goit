@@ -12,7 +12,6 @@ const refs = {
 
   closeModalBtn: document.querySelector('.modal__close-btn'),
   backdrop: document.querySelector('.backdrop'),
-
 };
 
 export default refs;
