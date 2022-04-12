@@ -8,7 +8,7 @@ const refs = {
   homeLi: document.querySelector(".home"),
   spanHome: document.querySelector(".span-home"),
   spanLibrary: document.querySelector(".span-library"),
-  libraryBtnList: document.querySelector(".not-displayed"),
+  libraryBtnList: document.querySelector(".button__list__library"),
   
 };
 

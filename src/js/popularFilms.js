@@ -9,10 +9,9 @@ const NewFetchApi = new ApiService();
 function fetchPopularFilms() { 
     NewFetchApi.fetchPopularMovie()
             .then(film => {
-            console.log(film);
             const markup = filmTpl(film);
-                console.log(markup);
-                refs.galleryMovies.innerHTML = markup;    
+                
+        refs.filmContainer.innerHTML = markup;    
         })
 
 }
