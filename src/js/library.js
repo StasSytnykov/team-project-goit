@@ -1,5 +1,6 @@
 import refs from './refs';
 
+
 async function getData(page, key) {
   const data = await fetch(
     `https://api.themoviedb.org/3/trending/movie/day?api_key=c650d1c0c307d1ff6855b3a117a6cfa1&page=${page}`,

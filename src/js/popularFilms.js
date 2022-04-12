@@ -4,6 +4,7 @@ import refs from './refs';
 
 const NewFetchApi = new ApiService();
 
+// let genres = [];
 
 
 function fetchPopularFilms() { 
@@ -15,4 +16,14 @@ function fetchPopularFilms() {
         })
 
 }
+
 fetchPopularFilms();
+
+// function genresFilm() {
+//     NewFetchApi.fetchGenres().then(res => {
+//         genres = res;
+//         fetchPopularFilms(genres);
+//     })
+// }
+
+// genresFilm();

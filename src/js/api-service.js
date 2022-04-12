@@ -17,7 +17,11 @@ export default class ApiService {
   }
 
   fetchGenres() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`).then(res => res.json());
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+      .then(res => res.json())
+      .then(results => {
+        return results
+        });
   }
 
   fetchPopularMovie() {
