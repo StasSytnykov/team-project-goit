@@ -1,6 +1,6 @@
 import refs from './refs';
+import { fetchPopularFilms } from './popularFilms';
 
-const headerContainer = document.querySelector('.container');
 const backgroundContent = document.querySelector('.content');
 
 const onClickHomeBtn = event => {
@@ -9,6 +9,7 @@ const onClickHomeBtn = event => {
   refs.spanLibrary.style.display = 'none';
   refs.searchBtn.style.display = 'block';
   backgroundContent.classList.remove('library-content');
+  fetchPopularFilms();
 };
 
 refs.homeLi.addEventListener('click', onClickHomeBtn);

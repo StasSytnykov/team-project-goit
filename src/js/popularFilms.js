@@ -4,15 +4,11 @@ import refs from './refs';
 
 const NewFetchApi = new ApiService();
 
+export function fetchPopularFilms() {
+  NewFetchApi.fetchPopularMovie().then(film => {
+    const markup = filmTpl(film);
 
-
-function fetchPopularFilms() { 
-    NewFetchApi.fetchPopularMovie()
-            .then(film => {
-            const markup = filmTpl(film);
-                
-        refs.filmContainer.innerHTML = markup;    
-        })
-
+    refs.filmContainer.innerHTML = markup;
+  });
 }
 fetchPopularFilms();
