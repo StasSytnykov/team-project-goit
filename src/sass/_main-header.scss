@@ -19,6 +19,8 @@ li,ul,a {
     background-image:linear-gradient(to right,rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url('../images/header/header-tablet-bcg.jpg');
 }
 @media screen and (min-width:1024px) {
+    height: 216px;
+    background-size: cover;
     background-image:linear-gradient(to right,rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)), url('../images/header/header-desktop-bcg.jpg');
 }
 }
@@ -153,6 +155,10 @@ li,ul,a {
     width: 100%;
     height: 3px;
     background-color:#FF6B08;
+}
+
+.span-home{
+    display: block;
 }
 
 .button__list__library{
