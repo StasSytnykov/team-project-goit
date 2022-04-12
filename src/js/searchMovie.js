@@ -12,13 +12,18 @@ function getMovie(e) {
   api
     .fetchMovieBySearch()
     .then(data => {
+      if (data.results.length === 0) {
+        refs.emptyResult.textContent =
+          'Search result not successful. Enter the correct movie name and try again.';
+      }
       renderMovies(data);
     })
     .catch(err => handleError(err));
 }
 
 function handleError(err) {
-  console.log(err);
+  refs.galleryMovies.innerHTML = '';
+  refs.emptyResult.innerHTML = err.message;
 }
 
 function renderMovies(data) {

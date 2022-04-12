@@ -1,3 +1,5 @@
+import svg from '../images/icons/pagination.svg';
+
 const paginationRef = document.querySelector(".pagination ul");
 let totalPages = 20;
 let pPage = 5;
@@ -11,9 +13,9 @@ function createPagination(totalPages, pPage){
   let beforeBeforePage = pPage - 2;
   let afterAfterPage = pPage + 2;
   if(pPage > 1){ 
-    liTag += `<li class="pagination_arrow" onclick="createPagination(totalPages, ${pPage - 1})"><span><svg class="pagination_arrow-svg" width="10" height="10">
-          <use href="./images/icons/pagination.svg#arrow-left"></use>
-        </svg></span></li>`;
+    liTag += `<li class="pagination_arrow" onclick="createPagination(totalPages, ${pPage - 1})"><svg class="pagination_arrow-svg" width="10" height="10">
+          <use href="${svg}#arrow-left"></use>
+        </svg></li>`;
   }
 
   if(pPage > 3){ 
@@ -66,9 +68,9 @@ function createPagination(totalPages, pPage){
   }
 
   if (pPage < totalPages) { 
-    liTag += `<li class="pagination_arrow" onclick="createPagination(totalPages, ${pPage + 1})"><span><svg class="pagination_arrow-svg" width="10" height="10">
-          <use href="./images/icons/pagination.svg#arrow-right"></use>
-        </svg></span></li>`;
+    liTag += `<li class="pagination_arrow" onclick="createPagination(totalPages, ${pPage + 1})"><svg class="pagination_arrow-svg" width="10" height="10">
+          <use href="${svg}#arrow-right"></use>
+        </svg></li>`;
   }
   paginationRef.innerHTML = liTag; 
   return liTag;
