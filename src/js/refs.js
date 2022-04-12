@@ -13,6 +13,7 @@ const refs = {
   libraryBtnList: document.querySelector('.button__list__library'),
   closeModalBtn: document.querySelector('.modal__close-btn'),
   backdrop: document.querySelector('.backdrop'),
+  emptyResult: document.querySelector('.empty-result'),
 };
 
 export default refs;
