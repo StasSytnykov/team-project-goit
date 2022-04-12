@@ -80,7 +80,7 @@ a {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 1.17;
   text-align: center;
 }
 
@@ -100,6 +100,16 @@ a {
 .img__logo {
   height: 24px;
   width: 24px;
+}
+
+.empty-result {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  color: #FF001B;
 }
 
 .search-form {
@@ -207,6 +217,9 @@ a {
   @media screen and(min-width:1024px) {
     margin-right: 16px;
   }
+}
+.flex{
+  display: flex;
 }
 
 .library-button {
