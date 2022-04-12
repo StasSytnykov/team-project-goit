@@ -33,4 +33,4 @@ module.exports="/team-project-goit/pagination.80fccd66.svg";
 },{"./refs":"VyiV","./popularFilms":"CCEu"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie"),require("./js/modal"),require("modern-normalize/modern-normalize.css"),require("./js/pagination"),require("./js/render-home-page"),require("./js/popularFilms");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp","./js/modal":"RSqK","modern-normalize/modern-normalize.css":"Y5dV","./js/pagination":"o8lo","./js/render-home-page":"KyeZ","./js/popularFilms":"CCEu"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-goit/src.10bcd6ab.js.map
+//# sourceMappingURL=/team-project-goit/src.1c1e37c9.js.map
