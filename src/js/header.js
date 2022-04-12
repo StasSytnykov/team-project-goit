@@ -28,7 +28,7 @@ function libraryClick(ev) {
   refs.spanHome.style.display = 'none';
   refs.spanLibrary.style.display = 'block';
   refs.searchBtn.style.display = 'none';
-  refs.libraryBtnList.style.display = 'flex';
+  refs.libraryBtnList.classList.add('flex');
   refs.containerHeader.classList.add('library-content');
 
   refs.watchedBtn.classList.add('active');
