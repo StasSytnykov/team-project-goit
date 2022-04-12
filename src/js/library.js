@@ -1,4 +1,6 @@
 import refs from './refs';
+import makeMovieMarkup from './moviesMarkup';
+import template from '../templates/movieCard.hbs';
 
 async function getData(page, key) {
   const data = await fetch(
@@ -6,25 +8,47 @@ async function getData(page, key) {
   )
     .then(responce => responce.json())
     .then(data => {
-      console.log(data.results);
       localStorage.setItem(key, JSON.stringify(data.results));
-      console.dir(localStorage);
     });
 }
-getData(1, 'watched');
-// getData(2, 'queue');
-
-// console.log(localStorage);
+getData(10, 'watched');
+getData(12, 'queue');
 
 refs.libraryBtn.addEventListener('click', library);
+refs.libraryLi.addEventListener('click', libraryClick);
 
 function library(ev) {
   if (ev.target.type !== 'button') return;
+  const data = JSON.parse(localStorage.getItem(ev.target.name));
+  const markup = data.map(template).join('\n');
+  if (!ev.target.classList.contains('active')) {
+    refs.headerBtn.forEach(el => {
+      el.classList.remove('active');
+    });
+    ev.target.classList.add('active');
+  }
   if (localStorage.getItem(ev.target.name)) {
-    // render films
-    refs.filmContainer.innerHTML = `There are a lot of films choised by you in ${ev.target.name} section`;
+    refs.galleryMovies.innerHTML = markup;
     return;
   }
-  refs.filmContainer.innerHTML = `There are NO films choised by you in ${ev.target.name} section`;
-  //   render string "This list is empty"
+  refs.galleryMovies.innerHTML = `There are NO films choised by you in ${ev.target.name} section`;
+}
+
+function libraryClick(ev) {
+  ev.preventDefault();
+  refs.spanHome.style.display = 'none';
+  refs.spanLibrary.style.display = 'block';
+  refs.searchBtn.style.display = 'none';
+  refs.libraryBtnList.classList.add('flex');//
+  refs.containerHeader.classList.add('library-content');
+
+  refs.watchedBtn.classList.add('active');
+  console.log(refs.watchedBtn);
+  if (localStorage.getItem('watched')) {
+    const data = JSON.parse(localStorage.getItem('watched'));
+    const markup = data.map(template).join('\n');
+    refs.galleryMovies.innerHTML = markup;
+    return;
+  }
+  refs.galleryMovies.innerHTML = `There are NO films choised by you in watched section`;
 }

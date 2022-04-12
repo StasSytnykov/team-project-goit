@@ -6,9 +6,8 @@ const NewFetchApi = new ApiService();
 
 export function fetchPopularFilms() {
   NewFetchApi.fetchPopularMovie().then(film => {
-    const markup = filmTpl(film);
-
-    refs.filmContainer.innerHTML = markup;
+    const markup = film.results.map(filmTpl).join('');
+    refs.galleryMovies.innerHTML = markup;
   });
 }
 fetchPopularFilms();
