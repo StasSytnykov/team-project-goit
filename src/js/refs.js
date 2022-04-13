@@ -13,6 +13,8 @@ const refs = {
   closeModalBtn: document.querySelector('.modal__close-btn'),
   backdrop: document.querySelector('.backdrop'),
   emptyResult: document.querySelector('.empty-result'),
+  backgroundContent: document.querySelector('.content'),
+  logo: document.querySelector('.nav__logo'),
   footerLink: document.querySelector('.footer__modal-open'),
   footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
   modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
