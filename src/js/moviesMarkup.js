@@ -4,7 +4,7 @@ import genresArr from './searchMovie';
 
 function makeMovieMarkup(movies) {
   return movies
-    .map(({ title, release_date, genre_ids, poster_path, vote_average }) => {
+    .map(({ title, release_date, genre_ids, poster_path }) => {
       const filteredGenresArr = genresArr
         .filter(genreId => genre_ids.includes(genreId.id))
         .map(genre => genre.name)
@@ -15,22 +15,20 @@ function makeMovieMarkup(movies) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       }
       return `<div class="photo-card">
-        <li class="gallery-list__item">
+        <div class="thumb">
             <img class="image" src=${poster}
               alt="${title}"
               loading="lazy"
               width="309"
               height="449" />
-        </li>
+        </div>
         <div class="info">
-          <h5 class="gallery-list__item-title">${title}
+          <h5 class="info-item">${title}
           </h5>
-          <div class="film-info-cont">
-          <p class="film-info">${filteredGenresArr.join(', ')}, Other
-          <span class="film-info__slash">|</span>
+          <div class="info-item2">
+          <p class="info-item">${filteredGenresArr.join(', ')}, Other
           </p>
-          <p class="film-info__year">${releaseYear}
-          <span class="film-info__rate">${vote_average}</span>
+          <p class="info-item">${releaseYear}
           </p>
           </div>
         </div>
