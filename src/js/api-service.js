@@ -13,7 +13,7 @@ export default class ApiService {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(new Error('Something went wrong'));
+      return Promise.reject(new Error('Oops! Search bar is empty.'));
     });
   }
 
@@ -22,8 +22,7 @@ export default class ApiService {
   }
 
   fetchGenres() {
-    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
-      .then(res => res.json());
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`).then(res => res.json());
   }
 
   fetchPopularMovie() {

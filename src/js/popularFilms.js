@@ -16,6 +16,7 @@ const NewFetchApi = new ApiService();
 // genresFilm();
 
 export function fetchPopularFilms() {
+  refs.emptyResult.innerHTML = '';
   NewFetchApi.fetchPopularMovie().then(film => {
     const markup = makeMovieMarkup(film.results);
     // const markup = film.results.map(filmTpl).join('');

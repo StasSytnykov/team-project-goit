@@ -8,7 +8,8 @@ refs.searchBtn.addEventListener('submit', getMovie);
 
 function getMovie(e) {
   e.preventDefault();
-  api.query = e.currentTarget.elements.searchQuery.value;
+  refs.emptyResult.innerHTML = '';
+  api.query = e.currentTarget.elements.searchQuery.value.trim();
   api
     .fetchMovieBySearch()
     .then(data => {
@@ -17,6 +18,7 @@ function getMovie(e) {
           'Search result not successful. Enter the correct movie name and try again.';
       }
       renderMovies(data);
+      refs.searchBtn.searchQuery.value = '';
     })
     .catch(err => handleError(err));
 }
