@@ -28,7 +28,6 @@ function library(ev) {
     ev.target.classList.add('active');
   }
   if (data) {
-    // const markup = data.map(template).join('\n');
     const markup = makeMovieMarkup(data);
     refs.galleryMovies.innerHTML = markup;
     return;
@@ -41,7 +40,6 @@ function libraryClick(ev) {
   refs.spanHome.style.display = 'none';
   refs.spanLibrary.style.display = 'block';
   refs.searchBtn.style.display = 'none';
-  // refs.libraryBtnList.classList.add('flex');
   refs.libraryBtnList.style.display = 'flex';
   refs.containerHeader.classList.add('library-content');
 
@@ -50,7 +48,6 @@ function libraryClick(ev) {
   console.log(refs.watchedBtn);
   if (localStorage.getItem('watched')) {
     const data = JSON.parse(localStorage.getItem('watched'));
-    // const markup = data.map(template).join('\n');
     const markup = makeMovieMarkup(data);
     refs.galleryMovies.innerHTML = markup;
     return;
