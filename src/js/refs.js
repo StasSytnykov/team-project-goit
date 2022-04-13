@@ -13,6 +13,9 @@ const refs = {
   closeModalBtn: document.querySelector('.modal__close-btn'),
   backdrop: document.querySelector('.backdrop'),
   emptyResult: document.querySelector('.empty-result'),
+  footerLink: document.querySelector('.footer__modal-open'),
+  footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
+  modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
 };
 
 export default refs;
