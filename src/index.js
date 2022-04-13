@@ -7,4 +7,5 @@ import 'modern-normalize/modern-normalize.css';
 import './js/movie-pagination';
 import './js/render-home-page';
 import './js/popularFilms';
+import './js/footer-modal';
 
