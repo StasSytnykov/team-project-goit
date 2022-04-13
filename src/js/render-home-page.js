@@ -9,7 +9,8 @@ const onClickHomeBtn = event => {
   refs.spanHome.style.display = 'block';
   refs.spanLibrary.style.display = 'none';
   refs.searchBtn.style.display = 'block';
-  refs.libraryBtnList.classList.remove("flex");
+  // refs.libraryBtnList.classList.remove("flex");
+  refs.libraryBtnList.style.display = 'none';
   backgroundContent.classList.remove('library-content');
   fetchPopularFilms();
 };
