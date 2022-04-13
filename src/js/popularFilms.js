@@ -1,5 +1,6 @@
 import ApiService from './api-service';
-import filmTpl from '../templates/movieCard.hbs';
+// import filmTpl from '../templates/movieCard.hbs';
+import makeMovieMarkup from './moviesMarkup';
 import refs from './refs';
 
 const NewFetchApi = new ApiService();
@@ -15,10 +16,11 @@ const NewFetchApi = new ApiService();
 // genresFilm();
 
 export function fetchPopularFilms() {
+  refs.emptyResult.innerHTML = '';
   NewFetchApi.fetchPopularMovie().then(film => {
-    const markup = film.results.map(filmTpl).join('');
+    const markup = makeMovieMarkup(film.results);
+    // const markup = film.results.map(filmTpl).join('');
     refs.galleryMovies.innerHTML = markup;
   });
 }
 fetchPopularFilms();
-
