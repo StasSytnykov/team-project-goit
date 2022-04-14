@@ -14,19 +14,22 @@ function makeMovieMarkup(movies) {
             .slice(0, 2)
             .join(', ') + ', Other';
       }
-      const releaseYear = new Date(release_date).getFullYear();
+      let releaseYear = new Date(release_date).getFullYear();
+      if (!release_date) {
+        releaseYear = '';
+      }
       let poster = emptyImg;
       if (poster_path) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       }
       return `<div class="photo-card" data-id="${id}">
-        <li class="gallery-list__item">
+        <div class="gallery-list__item">
             <img class="image" src=${poster}
               alt="${title}"
               loading="lazy"
               width="309"
               height="449" />
-        </li>
+        </div>
         <div class="info">
           <h5 class="gallery-list__item-title">${title}
           </h5>
