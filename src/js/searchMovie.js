@@ -30,6 +30,8 @@ function handleError(err) {
 
 function renderMovies(data) {
   const markup = makeMovieMarkup(data.results);
+  // const filmInfoRate = document.querySelectorAll('.film-info__rate');
+  // filmInfoRate.remove();
   refs.galleryMovies.innerHTML = markup;
 }
 
