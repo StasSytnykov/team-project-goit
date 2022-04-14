@@ -35,17 +35,16 @@ padding-inline: auto;
   }
 }
 
-
 .gallery-list__item {
   margin-top: 32px;
   margin-left: 10px;
   width: 309px; 
   height: 100%;
 }
+
 .gallery-list__item:hover {
   transform: scale(1.03);
 }
-
 
 .gallery-list__img {
   display: flex;
@@ -78,16 +77,19 @@ a {
 .film-info-cont {
   width: 100%;
   height: 40px;
-  display: flex;
+  // display: flex;
   flex-direction: row;
   align-items: center;
+
   justify-content: left;
+
 
   color: rgb(44, 45, 46);
   border-radius: 0 0 5px 5px;
 
 
 }
+
 
 .film-info__rate{
 background-color: #FF6B01;

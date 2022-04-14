@@ -2,14 +2,17 @@
   <div class="content">
     <div class="container">
       <nav class="nav">
-        <img class="img__logo" src="images/header/film.png" alt="" />
-        <a class="nav__logo">Filmoteka</a>
+        <a class="nav__logo" href=""
+          ><img class="img__logo" src="images/header/film.png" alt="" />
+          Filmoteka
+        </a>
         <ul class="nav__list">
-          <li class="nav__list-item home">
-            <a class="nav__list-link" href="">Home</a><span class="span span-home"></span>
+          <li class="nav__list-item">
+            <a class="nav__list-link home" href="">Home</a><span class="span span-home"></span>
           </li>
           <li class="nav__list-item library">
-            <a class="nav__list-link" href="">My Library</a><span class="span span-library"></span>
+            <a class="nav__list-link" href="" name="library">My Library</a
+            ><span class="span span-library"></span>
           </li>
         </ul>
       </nav>
@@ -20,7 +23,7 @@
             type="text"
             name="searchQuery"
             autocomplete="off"
-            placeholder="Поиск фильмов"
+            placeholder="Search movies..."
           />
           <button class="search-btn" type="submit">
             <svg
@@ -45,7 +48,9 @@
               />
             </svg>
           </button>
+          <p class="empty-result"></p>
         </div>
+        <include src="./partials/spiner.html"></include>//підключив спінер для привязки до форми
       </form>
 
       <!-- class для скрытия списка кнопок (not-displayed)  -->

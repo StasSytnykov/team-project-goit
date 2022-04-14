@@ -9,7 +9,12 @@ export default class ApiService {
 
   fetchMovies(endpoint) {
     const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
-    return fetch(url).then(res => res.json());
+    return fetch(url).then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(new Error('Oops! Search bar is empty.'));
+    });
   }
 
   fetchMovieBySearch() {
@@ -25,10 +30,9 @@ export default class ApiService {
     return fetch(url)
       .then(response => response.json())
       .then(results => {
-        return results
-        });
+        return results;
+      });
   }
-
 
   get query() {
     return this.searchQuery;
