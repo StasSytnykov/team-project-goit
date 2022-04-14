@@ -1,35 +1,58 @@
-.gallery-movies {
+.outer-shell{
+margin: auto;
+padding-inline: auto;
+@media screen and (min-width:320px) and (max-width:768px) {
+  width: 320px;
+  
+}
+@media screen and (min-width:768px) and (max-width:1024px) {
+  width: 768px;
+
+}
+@media screen and (min-width:1024px){
   width: 1024px;
+  
+}
+
+}
+
+
+.gallery-movies {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 0 auto 0;
+  @media screen and (min-width:320px) and (max-width:768px) {
+    max-width: 320px;
+    
+  }
+  @media screen and (min-width:768px) and (max-width:1024px) {
+    max-width: 768px;
+  
+  }
+  @media screen and (min-width:1024px){
+    max-width: 1024px;
+    
+  }
 }
 
-.photo-card {
+.gallery-list__item {
   margin-top: 32px;
   margin-left: 10px;
   width: 309px; 
   height: 100%;
 }
 
-.img-item {
+.gallery-list__item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-list__img {
   display: flex;
   justify-content: center;
   border: 1px gray;
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
-.image{
+  width: 309px;
+  height: 489px;
   border-radius: 5px;
-}
-
-.photo-card:hover {
-  box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  transform: scale(1.05);
-  transition-duration: 500ms
 }
 
 a {
@@ -42,14 +65,24 @@ a {
   text-decoration: none;
 }
 
-.info {
+
+.gallery-list__item-title{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+}
+.film-info-cont {
   width: 100%;
   height: 40px;
   // display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+
+  justify-content: left;
+
 
   color: rgb(44, 45, 46);
   border-radius: 0 0 5px 5px;
@@ -57,43 +90,18 @@ a {
 
 }
 
-// .info-item {
-//   display: flex;
-//   flex-direction: row;
-//   text-align: center;
-//   padding: 0 10px;
 
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-//   line-height: 1.4;
-//   font-size: 0.7em;
-// }
-
-.info-item {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
-  color: #000000;
-  text-transform: uppercase;
-  transition: color 0.3s ease-in-out 0s;
-  // display: flex;
-  // flex-direction: column;
-  // text-align: center;
-  // padding: 0 10px;
-
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  // line-height: 1.4;
-  // font-size: 0.7em;
+.film-info__rate{
+background-color: #FF6B01;
+border-radius: 5px;
+padding-inline: 10px;
+padding-block: 1px;
+color: #ffffff;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+text-align: center;
+text-transform: uppercase;
 }
-
-.info-item2 {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  padding: 0 10px;
-
-  color: orange;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.4;
-  font-size: 0.7em;
-}
-
