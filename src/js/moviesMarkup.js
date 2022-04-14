@@ -5,10 +5,15 @@ import genresArr from './searchMovie';
 function makeMovieMarkup(movies) {
   return movies
     .map(({ title, release_date, genre_ids, poster_path, vote_average, id }) => {
-      const filteredGenresArr = genresArr
-        .filter(genreId => genre_ids.includes(genreId.id))
-        .map(genre => genre.name)
-        .slice(0, 2);
+      let filteredGenresArr = 'Other';
+      if (genre_ids.length !== 0) {
+        filteredGenresArr =
+          genresArr
+            .filter(genreId => genre_ids.includes(genreId.id))
+            .map(genre => genre.name)
+            .slice(0, 2)
+            .join(', ') + ', Other';
+      }
       const releaseYear = new Date(release_date).getFullYear();
       let poster = emptyImg;
       if (poster_path) {
@@ -26,7 +31,7 @@ function makeMovieMarkup(movies) {
           <h5 class="gallery-list__item-title">${title}
           </h5>
           <div class="film-info-cont">
-          <p class="film-info">${filteredGenresArr.join(', ')}, Other
+          <p class="film-info">${filteredGenresArr}
           <span class="film-info__slash">|</span>
           </p>
           <p class="film-info__year">${releaseYear}
