@@ -18,6 +18,8 @@ function getMovie(e) {
           'Search result not successful. Enter the correct movie name and try again.';
       }
       renderMovies(data);
+      const filmInfoRate = document.querySelectorAll('.film-info__rate');
+      filmInfoRate.forEach(film => film.remove());
       refs.searchBtn.searchQuery.value = '';
     })
     .catch(err => handleError(err));
@@ -29,9 +31,8 @@ function handleError(err) {
 }
 
 function renderMovies(data) {
+  console.log(data.results);
   const markup = makeMovieMarkup(data.results);
-  // const filmInfoRate = document.querySelectorAll('.film-info__rate');
-  // filmInfoRate.remove();
   refs.galleryMovies.innerHTML = markup;
 }
 
