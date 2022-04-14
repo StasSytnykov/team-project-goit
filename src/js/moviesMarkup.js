@@ -4,7 +4,7 @@ import genresArr from './searchMovie';
 
 function makeMovieMarkup(movies) {
   return movies
-    .map(({ title, release_date, genre_ids, poster_path, vote_average, id }) => {
+    .map(({ title, name, release_date, first_air_date, genre_ids, poster_path, vote_average, id }) => {
       const filteredGenresArr = genresArr
         .filter(genreId => genre_ids.includes(genreId.id))
         .map(genre => genre.name)
@@ -23,13 +23,13 @@ function makeMovieMarkup(movies) {
               height="449" />
         </li>
         <div class="info">
-          <h5 class="gallery-list__item-title">${title}
+          <h5 class="gallery-list__item-title">${title || name}
           </h5>
           <div class="film-info-cont">
-          <p class="film-info">${filteredGenresArr.join(', ')}, Other
+          <p class="film-info">${filteredGenresArr.join(', ') || name}, Other
           <span class="film-info__slash">|</span>
           </p>
-          <p class="film-info__year">${releaseYear}
+          <p class="film-info__year">${releaseYear || first_air_date}
           <span class="film-info__rate">${vote_average}</span>
           </p>
           </div>
