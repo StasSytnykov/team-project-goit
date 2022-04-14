@@ -4,7 +4,7 @@ import genresArr from './searchMovie';
 
 function makeMovieMarkup(movies) {
   return movies
-    .map(({ title, release_date, genre_ids, poster_path, vote_average }) => {
+    .map(({ title, release_date, genre_ids, poster_path, vote_average, id }) => {
       const filteredGenresArr = genresArr
         .filter(genreId => genre_ids.includes(genreId.id))
         .map(genre => genre.name)
@@ -14,7 +14,7 @@ function makeMovieMarkup(movies) {
       if (poster_path) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       }
-      return `<div class="photo-card">
+      return `<div class="photo-card" data-id="${id}">
         <li class="gallery-list__item">
             <img class="image" src=${poster}
               alt="${title}"
