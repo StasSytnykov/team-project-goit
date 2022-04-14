@@ -1,7 +1,6 @@
 const refs = {
   searchBtn: document.querySelector('.search-form'),
   libraryBtn: document.querySelector('header'),
-  filmContainer: document.querySelector('.thumb'),
   galleryMovies: document.querySelector('.gallery-movies'),
   watchedBtn: document.querySelector('button[name=watched]'),
   headerBtn: document.querySelectorAll('.library-button'),
@@ -14,6 +13,11 @@ const refs = {
   closeModalBtn: document.querySelector('.modal__close-btn'),
   backdrop: document.querySelector('.backdrop'),
   emptyResult: document.querySelector('.empty-result'),
+  backgroundContent: document.querySelector('.content'),
+  logo: document.querySelector('.nav__logo'),
+  footerLink: document.querySelector('.footer__modal-open'),
+  footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
+  modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
 };
 
 export default refs;

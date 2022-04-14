@@ -1,0 +1,63 @@
+
+.foo{
+    position: absolute;
+    bottom:90px;
+    left: -70px;
+
+}
+.container-spiner {
+    //position: relative;
+    // bottom: 200px;
+    // left: 100px;
+    //bottom: 100px;
+     //left: 100px;
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+    margin-top: calc(100vh / 2 - 50px);
+}
+
+.block {
+    position: relative;
+    box-sizing: border-box;
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: #FFF;
+}
+
+.block:nth-child(4n+1) {
+    animation: wave 2s ease .0s infinite;
+}
+
+.block:nth-child(4n+2) {
+    animation: wave 2s ease .2s infinite;
+}
+
+.block:nth-child(4n+3) {
+    animation: wave 2s ease .4s infinite;
+}
+
+.block:nth-child(4n+4) {
+    animation: wave 2s ease .6s infinite;
+    margin-right: 0;
+}
+
+@keyframes wave {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+
+    50% {
+        top: 20px;
+        opacity: .2;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
