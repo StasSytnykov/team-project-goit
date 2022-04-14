@@ -97,3 +97,31 @@ a {
   font-size: 0.7em;
 }
 
+.btn-to-top {
+  position: fixed;
+  bottom: 3vh;
+  right: 1vw;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ff6b01;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-to-top:hover {
+  background-color: #2b3e88;
+  transition: all 0.3s;
+}
