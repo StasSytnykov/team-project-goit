@@ -1,9 +1,19 @@
 .gallery-movies {
-  width: 1024px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 0 auto 0;
+  margin-inline: auto;    
+  
+    @media screen and (min-width:320px) and (max-width:768px) {
+      max-width: 320px;
+    }
+    @media screen and (min-width:768px) and (max-width:1024px) {
+      max-width: 768px;
+    }
+    @media screen and (min-width:1024px){
+      max-width: 1024px;
+    }
+    
 }
 
 .photo-card {
@@ -57,17 +67,6 @@ a {
 
 }
 
-// .info-item {
-//   display: flex;
-//   flex-direction: row;
-//   text-align: center;
-//   padding: 0 10px;
-
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-//   line-height: 1.4;
-//   font-size: 0.7em;
-// }
-
 .info-item {
   font-weight: 500;
   font-size: 12px;
@@ -75,14 +74,7 @@ a {
   color: #000000;
   text-transform: uppercase;
   transition: color 0.3s ease-in-out 0s;
-  // display: flex;
-  // flex-direction: column;
-  // text-align: center;
-  // padding: 0 10px;
 
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  // line-height: 1.4;
-  // font-size: 0.7em;
 }
 
 .info-item2 {
@@ -99,9 +91,9 @@ a {
 
 .btn-to-top {
   position: fixed;
-  bottom: 3vh;
-  right: 1vw;
-  z-index: 1000;
+  bottom: 20vh;
+  right: 5vw;
+  z-index: 10000;
   width: 50px;
   height: 50px;
   display: flex;
