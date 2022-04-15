@@ -4,10 +4,6 @@
 }
 
 .footer-modal {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-
   position: absolute;
   top: 53%;
   left: 50%;
@@ -25,7 +21,6 @@
   }
   @media screen and (min-width: 768px) {
     top: 50%;
-    display: flex;
     min-width: 704px;
     height: 552px;
     padding: 40px 72px 40px 36px;
@@ -33,10 +28,22 @@
 
   @media screen and (min-width: 1024px) {
     top: 50%;
-    min-width: 814px;
+    min-width: 850px;
     height: 558px;
-    padding: 40px 16px;
+    padding: 20px 16px;
   }
+}
+
+.footer-modal__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #fff;
+  text-transform: uppercase;
+
+  margin: 0 0 20px 0;
 }
 
 .footer-modal__close-btn {
