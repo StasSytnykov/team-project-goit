@@ -25,15 +25,10 @@ function renderOfModal(item) {
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
   }
-  return `
-
-        <button type="button" class="modal__close-btn">
-            <img class="modal__close-icon" src="/close.50bf71c2.svg" width="30px" height="30px" alt="#" />
-            
-        </button>
-        <div class="modal_info-total">
+    return `
+        <div class="modal_info">
             <div class="modal_pic-block">
-                <img class="modal_pic" src=${poster} width="240px" height="357px" alt="#">
+                <img class="modal_pic" src=${poster} width="240px" height="357px" alt="${original_title}">
             </div>
             
             <div class="modal_info-block">
@@ -58,7 +53,7 @@ function renderOfModal(item) {
                     </tr>
                     <tr>
                         <td class="modal_info-colonm1">Original Title</td>
-                        <td class="modal_info-colonm2">A FISTFUL OF LEAD</td>
+                        <td class="modal_info-colonm2 orig_title">${original_title}</td>
                     </tr>
                     <tr>
                         <td class="modal_info-colonm1">Genre</td>
@@ -71,34 +66,24 @@ function renderOfModal(item) {
                 </p>
 
                 <div class="modal_buttons">
-                    <button type="button" data-key="watched" class="modal_button modal_button-watch">
+                    <button type="button" class="modal_button modal_button-watch">
                         add to Watched
                     </button>
-                    <button type="button" data-key="watched" class="visually-hidden btn-watch-delete">
-                        Deleted
-                    </button>
-                    <button type="button" data-key="queue" class="modal_button modal_button-queue">
+                    <button type="button" class="modal_button modal_button-queue">
                         add to queue
-                    </button>
-                     <button type="button" data-key="queue" class="visually-hidden btn-queue-delete">
-                        Deleted
                     </button>
                 </div>
             </div>
-        </div>`;
+        </div>
+    `;
 }
 
 const renderMarkupOfModal = item => {
   const markup = renderOfModal(item);
-  refs.backdrop.classList.remove('is-hidden');
-  refs.modal.innerHTML = markup;
+    refs.backdrop.classList.remove('is-hidden');
+    refs.modalInfo.innerHTML = markup;
 };
 
-refs.modal.addEventListener('click', e => {
-  if (e.target.className === 'modal__close-icon') {
-    refs.backdrop.classList.add('is-hidden');
-  }
-});
 
 // const onCloseModal = () => {};
 // adult: false
