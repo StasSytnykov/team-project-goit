@@ -10,32 +10,30 @@
   line-height: 1.33;
 }
 
-.pagination_list {
+.pagination__list {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.pagination_arrow {
+.pagination__arrow {
   width: 40px;
   height: 40px;
   background: #f7f7f7;
   border-radius: 5px;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: none;
 }
 
-.pagination_arrow-svg {
+.pagination__arrow-svg {
   fill: #000000;
 }
 
-.pagination_page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.pagination__page {
+
   color: #000000;
   width: 40px;
   height: 40px;
@@ -43,16 +41,24 @@
   background: #ffffff;
   border-radius: 5px;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .current-page,
 .number:hover,
-.pagination_arrow:hover {
+.pagination__arrow:hover {
   background: #ff6b08;
   color: #ffffff;
   fill: #ffffff;
 }
-.pagination_arrow:hover>.pagination_arrow-svg {
+
+.dots-prev,
+.dots-last {
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination__arrow:hover>.pagination__arrow-svg {
   fill: #ffffff;
 }
 .hidden {

@@ -21,7 +21,6 @@ function library(ev) {
   if (ev.target.type !== 'button') return;
 
   const data = JSON.parse(localStorage.getItem(ev.target.name));
-  // const markup = data.map(template).join('\n');
 
   if (!ev.target.classList.contains('active')) {
     refs.headerBtn.forEach(el => {
@@ -34,8 +33,7 @@ function library(ev) {
     refs.galleryMovies.innerHTML = markup;
     return;
   }
-
-  refs.galleryMovies.innerHTML = `<p class="empty-library">There are no films added.<p>`;
+  refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
 }
 
 function libraryClick(ev) {
@@ -43,17 +41,16 @@ function libraryClick(ev) {
   refs.spanHome.style.display = 'none';
   refs.spanLibrary.style.display = 'block';
   refs.searchBtn.style.display = 'none';
-  refs.libraryBtnList.classList.add('flex');
+  refs.libraryBtnList.style.display = 'flex';
   refs.containerHeader.classList.add('library-content');
 
   refs.libraryBtnList.style.display = 'flex';
   refs.watchedBtn.classList.add('active');
   if (localStorage.getItem('watched')) {
     const data = JSON.parse(localStorage.getItem('watched'));
-    // const markup = data.map(template).join('\n');
     const markup = makeMovieMarkup(data);
     refs.galleryMovies.innerHTML = markup;
     return;
   }
-  refs.galleryMovies.innerHTML = `<p class="empty-library">There are no films added.<p>`;
+  refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
 }

@@ -13,7 +13,7 @@ export default class ApiService {
       if (res.ok) {
         return res.json();
       }
-      return Promise.reject(new Error('Something went wrong'));
+      return Promise.reject(new Error('Oops! Search bar is empty.'));
     });
   }
 
