@@ -29,7 +29,7 @@
   @media screen and (min-width: 1024px) {
     top: 50%;
     min-width: 850px;
-    height: 558px;
+    height: 700px;
     padding: 20px 16px;
   }
 }
@@ -53,6 +53,7 @@
   border: none;
   padding: 0;
   background-color: #555;
+  cursor: pointer;
 
   &:hover,
   &:focus {
