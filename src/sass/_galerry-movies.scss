@@ -1,9 +1,19 @@
 .gallery-movies {
-  width: 1024px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 0 auto 0;
+  margin-inline: auto;    
+  
+    @media screen and (min-width:320px) and (max-width:768px) {
+      max-width: 320px;
+    }
+    @media screen and (min-width:768px) and (max-width:1024px) {
+      max-width: 768px;
+    }
+    @media screen and (min-width:1024px){
+      max-width: 1024px;
+    }
+    
 }
 
 .photo-card {
@@ -57,17 +67,6 @@ a {
 
 }
 
-// .info-item {
-//   display: flex;
-//   flex-direction: row;
-//   text-align: center;
-//   padding: 0 10px;
-
-//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-//   line-height: 1.4;
-//   font-size: 0.7em;
-// }
-
 .info-item {
   font-weight: 500;
   font-size: 12px;
@@ -75,14 +74,7 @@ a {
   color: #000000;
   text-transform: uppercase;
   transition: color 0.3s ease-in-out 0s;
-  // display: flex;
-  // flex-direction: column;
-  // text-align: center;
-  // padding: 0 10px;
 
-  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  // line-height: 1.4;
-  // font-size: 0.7em;
 }
 
 .info-item2 {
@@ -97,3 +89,31 @@ a {
   font-size: 0.7em;
 }
 
+.btn-to-top {
+  position: fixed;
+  bottom: 20vh;
+  right: 5vw;
+  z-index: 99;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ff6b01;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-to-top:hover {
+  background-color: #2b3e88;
+  transition: all 0.3s;
+}

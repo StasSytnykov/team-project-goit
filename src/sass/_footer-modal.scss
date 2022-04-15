@@ -1,39 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .footer-modal {
   position: absolute;
   top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow-y: auto;
-  width: 280px;
-  height: 100vh;
+  overflow-y: scroll;
+  min-width: 280px;
+  height: 100%;
   padding: 48px 20px 40px 20px;
-  background-color: #ffffff;
+  background-color: #111;
+  border-radius: 4px;
 
   transition: transform 250ms ease-in-out;
 
   .backdrop.is-hidden & {
     transform: translate(-50%, -50%) scale(1.5);
   }
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    min-width: 704px;
+    height: 552px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: 50%;
+    min-width: 850px;
+    height: 700px;
+    padding: 20px 16px;
+  }
+}
+
+.footer-modal__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #fff;
+  text-transform: uppercase;
+
+  margin: 0 0 20px 0;
 }
 
 .footer-modal__close-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    padding: 0;
-    background-color: #fff;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  padding: 0;
+  background-color: #555;
+  cursor: pointer;
 
-    &:hover,
-    &:focus {
-        background-color: #FF6B08;
-        border-radius: 5px;
-        box-shadow: 0px 1px 3px 4px rgba(0, 0, 0, 0.12),
-            0px 1px 1px 2px rgba(0, 0, 0, 0.14),
-            0px 2px 1px 1px rgba(0, 0, 0, 0.2);
-    }
+  &:hover,
+  &:focus {
+    background-color: #ff6b08;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 1px 2px rgba(0, 0, 0, 0.14),
+      0px 2px 1px 1px rgba(0, 0, 0, 0.2);
+  }
 
-    & .footer-modal__close-icon {
-        display: block;
-    }
+  & .footer-modal__close-icon {
+    display: block;
+  }
 }

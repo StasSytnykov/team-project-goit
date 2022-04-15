@@ -20,6 +20,8 @@ const refs = {
   footerLink: document.querySelector('.footer__modal-open'),
   footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
   modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
+  toBtnTop: document.querySelector('.btn-to-top'),
+  spiner:document.querySelector('.foo')
 };
 
 export default refs;
