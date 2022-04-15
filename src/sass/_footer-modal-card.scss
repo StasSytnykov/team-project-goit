@@ -1,0 +1,93 @@
+.footer-modal__container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   padding: 40px 0;
+  flex-wrap: wrap;
+}
+
+.footer-modal__container .box {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  color: #fff;
+  background-color: #111;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  transition: 0.5s;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-20px);
+  }
+}
+
+.footer-modal__container .box::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 101px;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+
+.footer-modal__container .box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 101px;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  filter: blur(30px);
+}
+
+.footer-modal__container .box:nth-child(even)::before,
+.footer-modal__container .box:nth-child(even)::after {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.footer-modal__content {
+  padding: 10px;
+  height: 100px;
+  position: relative;
+}
+
+.box .footer-modal__content span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.box .footer-modal__content span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.footer-modal__pic {
+  display: block;
+  // margin-bottom: 20px;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 375px;
+    height: 478px;
+  }
+}
