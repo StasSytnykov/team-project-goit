@@ -1,9 +1,19 @@
 .gallery-movies {
-  width: 1024px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 0 auto 0;
+  margin-inline: auto;    
+  
+    @media screen and (min-width:320px) and (max-width:768px) {
+      max-width: 320px;
+    }
+    @media screen and (min-width:768px) and (max-width:1024px) {
+      max-width: 768px;
+    }
+    @media screen and (min-width:1024px){
+      max-width: 1024px;
+    }
+    
 }
 
 .photo-card {
