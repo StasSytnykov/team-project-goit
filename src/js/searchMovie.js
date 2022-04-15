@@ -19,6 +19,7 @@ function getMovie(e) {
       }
       renderMovies(data);
       refs.searchBtn.searchQuery.value = '';
+     
     })
     .catch(err => handleError(err));
 }

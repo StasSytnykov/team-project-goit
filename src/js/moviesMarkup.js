@@ -14,7 +14,7 @@ function makeMovieMarkup(movies) {
       if (poster_path) {
         poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
       }
-      return `<div class="photo-card" data-id="${id}">
+      return `<div class="photo-card" id="${id}">
         <li class="gallery-list__item">
             <img class="image" src=${poster}
               alt="${title}"
