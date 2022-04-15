@@ -74,13 +74,13 @@ function renderOfModal(item) {
                     <button type="button" data-key="watched" class="modal_button modal_button-watch">
                         add to Watched
                     </button>
-                    <button type="button" data-key="watched" class="is-hidden btn-watch-delete">
+                    <button type="button" data-key="watched" class="visually-hidden btn-watch-delete">
                         Deleted
                     </button>
                     <button type="button" data-key="queue" class="modal_button modal_button-queue">
                         add to queue
                     </button>
-                     <button type="button" data-key="queue" class="is-hidden btn-queue-delete">
+                     <button type="button" data-key="queue" class="visually-hidden btn-queue-delete">
                         Deleted
                     </button>
                 </div>
