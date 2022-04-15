@@ -1,4 +1,6 @@
 const refs = {
+  closeIcon: document.querySelector('.modal__close-icon'),
+  modal: document.querySelector('.modal'),
   searchBtn: document.querySelector('.search-form'),
   libraryBtn: document.querySelector('header'),
   galleryMovies: document.querySelector('.gallery-movies'),

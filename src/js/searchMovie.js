@@ -22,6 +22,7 @@ function getMovie(e) {
       const filmInfoRate = document.querySelectorAll('.film-info__rate');
       filmInfoRate.forEach(film => film.remove());
       refs.searchBtn.searchQuery.value = '';
+     
     })
     .catch(err => handleError(err));
 }
