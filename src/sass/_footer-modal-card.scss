@@ -7,7 +7,8 @@
   flex-wrap: wrap;
 }
 
-.footer-modal__container .box {
+.footer-modal__box {
+  margin-bottom: 20px;
   position: relative;
   width: 240px;
   height: 100%;
@@ -24,7 +25,7 @@
   }
 }
 
-.footer-modal__container .box::before {
+.footer-modal__box::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -34,7 +35,7 @@
   background: linear-gradient(45deg, #ffbc00, #ff0058);
 }
 
-.footer-modal__container .box::after {
+.footer-modal__box::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -45,35 +46,9 @@
   filter: blur(30px);
 }
 
-.footer-modal__container .box:nth-child(even)::before,
-.footer-modal__container .box:nth-child(even)::after {
+.footer-modal__box:nth-child(even)::before,
+.footer-modal__box:nth-child(even)::after {
   background: linear-gradient(315deg, #03a9f4, #ff0058);
-}
-
-.footer-modal__content {
-  padding: 10px;
-  height: 100px;
-  position: relative;
-}
-
-.box .footer-modal__content span {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  bottom: 6px;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.box .footer-modal__content span::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  pointer-events: none;
 }
 
 .footer-modal__pic {
@@ -90,4 +65,35 @@
     width: 375px;
     height: 478px;
   }
+}
+
+.footer-modal__thumb {
+  padding: 15px;
+  height: 100px;
+  position: relative;
+}
+
+.footer-modal__thumb span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.footer-modal__thumb span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.footer-modal__content {
+  position: relative;
+  z-index: 10;
 }
