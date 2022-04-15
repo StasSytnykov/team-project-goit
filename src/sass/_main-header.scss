@@ -16,13 +16,12 @@ a {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header/header-mobile-bcg.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  @media screen and(min-width:768px) {
+  @media screen and(min-width:321px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/header-tablet-bcg.jpg');
   }
-  @media screen and (min-width: 1024px) {
+  
+  @media screen and (min-width: 769px) {
     height: 216px;
     background-size: cover;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -32,14 +31,16 @@ a {
 .library-content {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header/library-header-mobile-bcg.jpg');
-  @media screen and(min-width:768px) {
+    background-repeat: no-repeat;
+  @media screen and(min-width:321px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/library-header-tablet-bcg.jpg');
   }
 
-  @media screen and (min-width: 1024px) {
-    margin-left: 39px;
-    margin-right: 39px;
+  @media screen and (min-width: 769px) {
+    // margin-left: 39px;
+    // margin-right: 39px;
+    background-size: cover;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/library-header-desktop-bcg.jpg');
   }
@@ -48,7 +49,6 @@ a {
 .container {
   margin-left: 22px;
   margin-right: 22px;
-  // background-image: url('../images/header/Header-library.jpg');
   @media screen and(min-width:768px) {
     margin-left: 32px;
     margin-right: 32px;
@@ -83,12 +83,18 @@ a {
   line-height: 1.17;
   text-align: center;
 }
-
-.nav__logo {
+.nav__logo-item{
   display: none;
   margin-left: 10px;
   @media screen and(min-width:768px) {
-    display: block;
+    display: block;}
+}
+
+.nav__logo {
+  display: block;
+  margin-left: 10px;
+  @media screen and(min-width:768px) {
+    display: flex;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -114,17 +120,16 @@ a {
 
 .search-form {
   position: relative;
-  padding-bottom: 88px;
+  padding-bottom: 84px;
   max-width: 335px;
   margin: 0 auto;
-  margin-top: 56px;
-  @media screen and (min-width: 768px) {
-    margin-top: 38px;
-    padding-bottom: 75px;
+  margin-top: 50px;
+  @media screen and (min-width:321px) {
+    padding-bottom: 70px;
   }
-  @media screen and (min-width: 1024px) {
-    margin-top: 30px;
-    padding-bottom: 80px;
+  
+   @media screen and (min-width: 768px) {
+   margin-top: 40px;
   }
 }
 
@@ -181,13 +186,13 @@ a {
   display: none;
   justify-content: center;
   width: 100%;
-  margin-top: 58px;
+  margin-top: 46px;
   padding-bottom: 62px;
-  @media screen and(min-width:768px) {
+  @media screen and(min-width:321px) {
     margin-top: 35px;
     padding-bottom: 58px;
   }
-  @media screen and(min-width:1024px) {
+  @media screen and(min-width:768px) {
     margin-top: 35px;
     padding-bottom: 54px;
   }
