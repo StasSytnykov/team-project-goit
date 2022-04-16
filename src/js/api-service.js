@@ -7,8 +7,8 @@ export default class ApiService {
     this.page = 1;
   }
 
-  fetchMovies(endpoint) {
-    const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
+  fetchMovies(endpoint, page) {
+    const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${page}&include_adult=false`;
     return fetch(url).then(res => {
       if (res.ok) {
         return res.json();
@@ -17,16 +17,16 @@ export default class ApiService {
     });
   }
 
-  fetchMovieBySearch() {
-    return this.fetchMovies('search/movie');
+  fetchMovieBySearch(page) {
+    return this.fetchMovies('search/movie', page);
   }
 
   fetchGenres() {
     return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`).then(res => res.json());
   }
 
-  fetchPopularMovie() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}`;
+  fetchPopularMovie(page) {
+    const url = `${BASE_URL}/trending/all/day?api_key=${API_KEY}&page=${page}`;
     return fetch(url)
       .then(response => response.json())
       .then(results => {
