@@ -2,17 +2,17 @@ import refs from './refs';
 import makeMovieMarkup from './moviesMarkup';
 import template from '../templates/movieCard.hbs';
 
-async function getData(page, key) {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=c650d1c0c307d1ff6855b3a117a6cfa1&page=${page}`,
-  )
-    .then(responce => responce.json())
-    .then(data => {
-      localStorage.setItem(key, JSON.stringify(data.results));
-    });
-}
+// async function getData(page, key) {
+//   const data = await fetch(
+//     `https://api.themoviedb.org/3/trending/movie/day?api_key=c650d1c0c307d1ff6855b3a117a6cfa1&page=${page}`,
+//   )
+//     .then(responce => responce.json())
+//     .then(data => {
+//       localStorage.setItem(key, JSON.stringify(data.results));
+//     });
+// }
 // getData(10, 'watched');
-getData(12, 'queue');
+// getData(12, 'queue');
 
 refs.libraryBtn.addEventListener('click', library);
 refs.libraryLi.addEventListener('click', libraryClick);
