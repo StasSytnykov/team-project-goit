@@ -31,7 +31,7 @@ function handleError(err) {
   refs.emptyResult.innerHTML = err.message;
 }
 
-function renderMovies(data) {
+export function renderMovies(data) {
   console.log(data.results);
   const markup = makeMovieMarkup(data.results);
   refs.galleryMovies.innerHTML = markup;
