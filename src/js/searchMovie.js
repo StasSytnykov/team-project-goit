@@ -6,7 +6,7 @@ const api = new ApiService();
 
 refs.searchBtn.addEventListener('submit', getMovie);
 
-function getMovie(e) {
+export function getMovie(e) {
   refs.spiner.style.display = 'block';
   e.preventDefault();
   refs.emptyResult.innerHTML = '';
@@ -22,7 +22,6 @@ function getMovie(e) {
       const filmInfoRate = document.querySelectorAll('.film-info__rate');
       filmInfoRate.forEach(film => film.remove());
       refs.searchBtn.searchQuery.value = '';
-     
     })
     .catch(err => handleError(err));
 }
@@ -32,7 +31,7 @@ function handleError(err) {
   refs.emptyResult.innerHTML = err.message;
 }
 
-function renderMovies(data) {
+export function renderMovies(data) {
   console.log(data.results);
   const markup = makeMovieMarkup(data.results);
   refs.galleryMovies.innerHTML = markup;

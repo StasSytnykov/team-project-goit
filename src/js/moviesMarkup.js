@@ -5,7 +5,7 @@ import genresArr from './searchMovie';
 function makeMovieMarkup(movies) {
   return movies
     .map(
-      ({
+       ({
         title,
         name,
         release_date,
@@ -17,7 +17,6 @@ function makeMovieMarkup(movies) {
         id,
       }) => {
         let filteredGenresArr = 'Other';
-
         if (genres && genres.length > 0) {
           filteredGenresArr =
             genres
