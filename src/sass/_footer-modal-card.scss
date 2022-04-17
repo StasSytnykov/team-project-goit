@@ -7,11 +7,11 @@
     align-items: center;
     flex-wrap: wrap;
   }
-  @media screen and (min-width: 1024px) {
-  }
 }
 
 .footer-modal__box {
+  border-radius: 5px;
+  overflow: hidden;
   position: relative;
   color: #fff;
   background-color: #111;
@@ -95,7 +95,6 @@
 }
 
 .footer-modal__pic {
-  border-radius: 5px;
   height: 300px;
 
   @media screen and (min-width: 768px) {
