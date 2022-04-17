@@ -22,7 +22,6 @@ function addDarkTheme() {
         if (localStorage.getItem('theme') === 'dark') {
 
             document.body.classList.add('dark');
-            // chk.classList.add('chexkbox:checked');
             chk.checked = true;
         }
         else {
