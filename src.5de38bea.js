@@ -27,7 +27,7 @@ module.exports="/team-project-goit/img_not_found.7ad9f745.jpg";
 },{"./refs":"VyiV","./popularFilms":"CCEu"}],"vVBF":[function(require,module,exports) {
 "use strict";var t=e(require("./refs"));function e(t){return t&&t.__esModule?t:{default:t}}function o(){const e=window.pageYOffset,o=document.documentElement.clientHeight;e>o&&t.default.toBtnTop.classList.add("btn-to-top--visible"),e<o&&t.default.toBtnTop.classList.remove("btn-to-top--visible")}function n(){window.pageYOffset>0&&window.scrollTo({top:0,behavior:"smooth"})}window.addEventListener("scroll",o),t.default.toBtnTop.addEventListener("click",n);
 },{"./refs":"VyiV"}],"lokY":[function(require,module,exports) {
-const e=document.getElementById("chk");e.addEventListener("change",()=>{document.body.classList.toggle("dark")});
+const e=document.getElementById("chk");function t(){try{"dark"===localStorage.getItem("theme")?(document.body.classList.add("dark"),e.checked=!0):(document.body.classList.remove("dark"),e.checked=!1)}catch(t){}}e.addEventListener("change",()=>{"dark"===localStorage.getItem("theme")?localStorage.removeItem("theme"):localStorage.setItem("theme","dark"),t()}),t();
 },{}],"tFZZ":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.onCheckTheme=void 0;var e=o(require("./refs"));function o(e){return e&&e.__esModule?e:{default:e}}const t=()=>{e.default.body.classList.contains("dark")?e.default.footerModal.style.backgroundColor="#fff":e.default.footerModal.style.backgroundColor="#111"};exports.onCheckTheme=t;
 },{"./refs":"VyiV"}],"zUU9":[function(require,module,exports) {
@@ -39,4 +39,4 @@ const e=document.getElementById("chk");e.addEventListener("change",()=>{document
 },{"./refs":"VyiV","./api-service":"hC31","./searchMovie":"HUSp","./images/img_not_found.jpg":"RRB9","../js/local-storage":"yGjV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/library"),require("./js/searchMovie"),require("./js/modal"),require("modern-normalize/modern-normalize.css"),require("./js/movie-pagination"),require("./js/render-home-page"),require("./js/popularFilms"),require("./js/btn-top"),require("./js/moon-sun"),require("./js/footer-modal"),require("./js/openModal"),require("./js/local-storage");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/library":"BfNj","./js/searchMovie":"HUSp","./js/modal":"RSqK","modern-normalize/modern-normalize.css":"Y5dV","./js/movie-pagination":"UyPo","./js/render-home-page":"KyeZ","./js/popularFilms":"CCEu","./js/btn-top":"vVBF","./js/moon-sun":"lokY","./js/footer-modal":"zUU9","./js/openModal":"ItER","./js/local-storage":"yGjV"}]},{},["Focm"], null)
-//# sourceMappingURL=/team-project-goit/src.f213388f.js.map
+//# sourceMappingURL=/team-project-goit/src.5de38bea.js.map
