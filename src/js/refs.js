@@ -19,6 +19,8 @@ const refs = {
   logo: document.querySelector('.nav__logo'),
   footerLink: document.querySelector('.footer__modal-open'),
   footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
+  body: document.querySelector('body'),
+  footerModal: document.querySelector('div[data-action="check-theme"]'),
   modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
   toBtnTop: document.querySelector('.btn-to-top'),
   spiner: document.querySelector('.foo'),
