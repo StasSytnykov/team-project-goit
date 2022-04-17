@@ -13,6 +13,13 @@
     line-height: 19px;
     color: #545454;
     text-decoration:underline;
+
+    transition: color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: #ff6b08; 
+  }
 }
 
 .footer__section {
