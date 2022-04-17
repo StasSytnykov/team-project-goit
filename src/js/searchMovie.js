@@ -10,6 +10,8 @@ export function getMovie(e) {
   refs.spiner.style.display = 'block';
   e.preventDefault();
   refs.emptyResult.innerHTML = '';
+  refs.tui.style.display = 'flex';
+  refs.pagi.style.display = 'none';
   api.query = e.currentTarget.elements.searchQuery.value.trim();
   api
     .fetchMovieBySearch()
@@ -32,11 +34,11 @@ function handleError(err) {
 }
 
 export function renderMovies(data) {
-  console.log(data.results);
   const markup = makeMovieMarkup(data.results);
   refs.galleryMovies.innerHTML = markup;
-  setTimeout(()=>{refs.spiner.style.display = 'none';},500)
-  
+  setTimeout(() => {
+    refs.spiner.style.display = 'none';
+  }, 500);
 }
 
 function getGenres() {

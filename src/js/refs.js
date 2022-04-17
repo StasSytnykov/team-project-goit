@@ -25,6 +25,8 @@ const refs = {
   toBtnTop: document.querySelector('.btn-to-top'),
   spiner: document.querySelector('.foo'),
   modalInfo: document.querySelector('.modal_info-total'),
+  tui: document.querySelector('.tui-pagination'),
+  pagi: document.querySelector('.pagination__list'),
 };
 
 export default refs;
