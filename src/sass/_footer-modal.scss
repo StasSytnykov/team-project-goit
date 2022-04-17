@@ -4,19 +4,16 @@
 }
 
 .footer-modal {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-
   position: absolute;
   top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: scroll;
-  width: 280px;
+  min-width: 280px;
   height: 100%;
   padding: 48px 20px 40px 20px;
   background-color: #111;
+  border-radius: 4px;
 
   transition: transform 250ms ease-in-out;
 
@@ -25,7 +22,6 @@
   }
   @media screen and (min-width: 768px) {
     top: 50%;
-    display: flex;
     min-width: 704px;
     height: 552px;
     padding: 40px 72px 40px 36px;
@@ -33,10 +29,22 @@
 
   @media screen and (min-width: 1024px) {
     top: 50%;
-    min-width: 814px;
-    height: 558px;
-    padding: 40px 16px;
+    min-width: 850px;
+    height: 700px;
+    padding: 20px 16px;
   }
+}
+
+.footer-modal__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #fff;
+  text-transform: uppercase;
+
+  margin: 0 0 20px 0;
 }
 
 .footer-modal__close-btn {
@@ -45,7 +53,8 @@
   right: 8px;
   border: none;
   padding: 0;
-  background-color: #fff;
+  background-color: #555;
+  cursor: pointer;
 
   &:hover,
   &:focus {

@@ -1,4 +1,6 @@
 const refs = {
+  closeIcon: document.querySelector('.modal__close-icon'),
+  modal: document.querySelector('.modal'),
   searchBtn: document.querySelector('.search-form'),
   libraryBtn: document.querySelector('header'),
   galleryMovies: document.querySelector('.gallery-movies'),
@@ -19,6 +21,8 @@ const refs = {
   footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
   modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
   toBtnTop: document.querySelector('.btn-to-top'),
+  spiner: document.querySelector('.foo'),
+  modalInfo: document.querySelector('.modal_info-total'),
 };
 
 export default refs;

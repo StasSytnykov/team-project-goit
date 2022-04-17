@@ -1,31 +1,26 @@
 
+.spiner-path{
+    position: relative;
+}
 .foo{
+    display:block;
     position: absolute;
-    bottom:90px;
-    left: -70px;
-
+    left: calc(50% - 85px);
 }
 .container-spiner {
-    //position: relative;
-    // bottom: 200px;
-    // left: 100px;
-    //bottom: 100px;
-     //left: 100px;
-    width: 40px;
-    height: 40px;
-    margin: 10px auto;
-    margin-top: calc(100vh / 2 - 50px);
+    width:170px;
+    height: 170px;
 }
 
 .block {
     position: relative;
     box-sizing: border-box;
     float: left;
-    margin: 0 5px 5px 0;
-    width: 4px;
-    height: 4px;
-    border-radius: 1px;
-    background: #FFF;
+    margin: 0 30px 30px 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background: #fe3902;
 }
 
 .block:nth-child(4n+1) {

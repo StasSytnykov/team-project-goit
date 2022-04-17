@@ -11,12 +11,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    margin-left: 92vw;
+    margin-left: 80vw;
     margin-top: -70px;
     position: relative;
     height: 26px;
     width: 50px;
     transform: scale(1.5);
+
+    @media screen and (min-width: 768px) {
+        margin-left: 92vw;
+    }
 }
 
 .label .ball {
