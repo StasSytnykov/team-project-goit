@@ -28,31 +28,31 @@ export class Pagination {
   }
 
   prevPage() {
-      if (this.currentPage === 1) {
+    if (this.currentPage === 1) {
       return;
-      }
+    }
     this.currentPage -= 1;
-    }
-    
-    beforePrevPage() {
-      if (this.currentPage <= 1) {
+  }
+
+  beforePrevPage() {
+    if (this.currentPage <= 1) {
       return;
-      }
+    }
     this.currentPage -= 2;
-    }
+  }
 
-    afterNextPage() {
-      if (this.currentPage > this.total - 2) {
+  afterNextPage() {
+    if (this.currentPage > this.total - 2) {
       return;
-      }
+    }
     this.currentPage += 2;
-    }
+  }
 
-    firstPage() {
-        this.currentPage = 1;  
-    }
+  firstPage() {
+    this.currentPage = 1;
+  }
 
-    lastPage() {
-        this.currentPage = this.total;  
-    }
+  lastPage() {
+    this.currentPage = this.total;
+  }
 }

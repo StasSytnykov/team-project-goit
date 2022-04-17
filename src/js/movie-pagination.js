@@ -1,6 +1,12 @@
 import ApiService from './api-service';
 import { Pagination } from './pagination-class';
+// import { fetchPopularFilms } from './popularFilms';
+// import makeMovieMarkup from './moviesMarkup';
+// import refs from './refs';
+import { renderMovies } from './searchMovie';
 
+
+  
 const prevPageRef = document.querySelector(".prev");
 const nextPageRef = document.querySelector(".next");
 const currentPageRef = document.querySelector(".current-page");
@@ -23,9 +29,9 @@ lastDotsRef.style.display = 'flex';
 const api = new ApiService();
 
 const moviePagination = new Pagination({
-  total: 20,
+  total: 1000,
   onChange(value) {
-    
+    handlePageChange(value);
     currentPageRef.textContent = value;
     beforeCurrentPageRef.textContent = value - 1;
     afterCurrentPageRef.textContent = value + 1;
@@ -127,3 +133,19 @@ firstPageRef.addEventListener('click', () => {
 lastPageRef.addEventListener('click', () => {
   moviePagination.lastPage();
 })
+
+const handlePageChange = currentPage => {
+  api.fetchPopularMovie(currentPage).then(data => {
+    if (data.total_pages < 2000) {
+      moviePagination.total = data.total_pages;
+    } 
+    renderMovies(data);
+});
+};
+
+api.fetchPopularMovie().then(data => {
+  renderMovies(data);
+});
+
+
+
