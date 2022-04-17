@@ -1,5 +1,6 @@
 import refs from './refs';
 import { fetchPopularFilms } from './popularFilms';
+import infiniteScroll from './library';
 
 const onClickHomeBtn = event => {
   event.preventDefault();
@@ -9,6 +10,7 @@ const onClickHomeBtn = event => {
   refs.libraryBtnList.style.display = 'none';
   refs.backgroundContent.classList.remove('library-content');
   refs.headerBtn.forEach(el => el.classList.remove('active'));
+  document.removeEventListener('scroll', infiniteScroll, true);
   fetchPopularFilms();
 };
 

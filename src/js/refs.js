@@ -25,7 +25,6 @@ const refs = {
   toBtnTop: document.querySelector('.btn-to-top'),
   spiner: document.querySelector('.foo'),
   modalInfo: document.querySelector('.modal_info-total'),
-  load: document.querySelector('.load'),
 };
 
 export default refs;
