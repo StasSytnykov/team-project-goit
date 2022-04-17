@@ -20,7 +20,7 @@ a {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/header-tablet-bcg.jpg');
   }
-  
+
   @media screen and (min-width: 769px) {
     height: 216px;
     background-size: cover;
@@ -31,7 +31,7 @@ a {
 .library-content {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url('../images/header/library-header-mobile-bcg.jpg');
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   @media screen and(min-width:321px) {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/library-header-tablet-bcg.jpg');
@@ -82,12 +82,25 @@ a {
   font-weight: 500;
   line-height: 1.17;
   text-align: center;
+  transition: color 250ms ease-in-out;
+
+  &:hover,
+  :focus {
+    color: #ff6b08;
+  }
 }
-.nav__logo-item{
+.nav__logo-item {
   display: none;
   margin-left: 10px;
+  transition: color 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: #ff6b08;
+  }
   @media screen and(min-width:768px) {
-    display: block;}
+    display: block;
+  }
 }
 
 .nav__logo {
@@ -95,6 +108,7 @@ a {
   margin-left: 10px;
   @media screen and(min-width:768px) {
     display: flex;
+    align-items: center;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -115,7 +129,7 @@ a {
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
-  color: #FF001B;
+  color: #ff001b;
 }
 
 .search-form {
@@ -124,12 +138,12 @@ a {
   max-width: 335px;
   margin: 0 auto;
   margin-top: 50px;
-  @media screen and (min-width:321px) {
+  @media screen and (min-width: 321px) {
     padding-bottom: 70px;
   }
-  
-   @media screen and (min-width: 768px) {
-   margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
   }
 }
 
@@ -211,6 +225,9 @@ a {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  cursor: pointer;
+
+  transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;  
   @media screen and(min-width:768px) {
     width: 150px;
   }
@@ -225,7 +242,7 @@ a {
     margin-right: 16px;
   }
 }
-.flex{
+.flex {
   display: flex;
 }
 
@@ -236,6 +253,7 @@ a {
 .active,
 .library-button:hover,
 .library-button:focus {
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   background-color: #ff6b01;
   border: none;
 }

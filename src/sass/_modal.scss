@@ -52,16 +52,18 @@
 
 .modal__close-btn {
     position: absolute;
+    border-radius: 5px;
     top: 8px;
     right: 8px;
     border: none;
     padding: 0;
     background-color: #fff;
+    cursor: pointer;
+    transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
 
     &:hover,
     &:focus {
         background-color: #FF6B08;
-        border-radius: 5px;
         box-shadow: 0px 1px 3px 4px rgba(0, 0, 0, 0.12),
             0px 1px 1px 2px rgba(0, 0, 0, 0.14),
             0px 2px 1px 1px rgba(0, 0, 0, 0.2);
@@ -251,6 +253,8 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
+    transition: box-shadow 250ms ease-in-out;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
         width: 125px;
@@ -280,4 +284,39 @@
 .modal_button-queue {
     background-color: #fff;
     border: 1px solid #000000;
+}
+
+
+
+.modal_info-error{
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 70%;
+    }
+    @media screen and (min-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100%;
+    }
+}
+
+.modal-img__error{
+    margin-top: 30px;
+    width: 240px;
+    height: 240px;
+    color: #FF6B01;
+    @media screen and (min-width: 768px) {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+.modal-text__error{
+   display: flex;
+   justify-content: center;
+   text-align: center;
 }

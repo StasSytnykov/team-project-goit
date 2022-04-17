@@ -1,24 +1,12 @@
 import refs from './refs';
 import makeMovieMarkup from './moviesMarkup';
-import template from '../templates/movieCard.hbs';
-
-// async function getData(page, key) {
-//   const data = await fetch(
-//     `https://api.themoviedb.org/3/trending/movie/day?api_key=c650d1c0c307d1ff6855b3a117a6cfa1&page=${page}`,
-//   )
-//     .then(responce => responce.json())
-//     .then(data => {
-//       localStorage.setItem(key, JSON.stringify(data.results));
-//     });
-// }
-// getData(10, 'watched');
-// getData(12, 'queue');
 
 refs.libraryBtn.addEventListener('click', library);
 refs.libraryLi.addEventListener('click', libraryClick);
 
 function library(ev) {
   if (ev.target.type !== 'button') return;
+
   const data = JSON.parse(localStorage.getItem(ev.target.name));
 
   if (!ev.target.classList.contains('active')) {
@@ -27,7 +15,7 @@ function library(ev) {
     });
     ev.target.classList.add('active');
   }
-  if (data) {
+  if (data && data.length > 0) {
     const markup = makeMovieMarkup(data);
     refs.galleryMovies.innerHTML = markup;
     return;
@@ -45,9 +33,10 @@ function libraryClick(ev) {
 
   refs.libraryBtnList.style.display = 'flex';
   refs.watchedBtn.classList.add('active');
-  console.log(refs.watchedBtn);
-  if (localStorage.getItem('watched')) {
-    const data = JSON.parse(localStorage.getItem('watched'));
+
+  const data = JSON.parse(localStorage.getItem('watched'));
+
+  if (data && data.length > 0) {
     const markup = makeMovieMarkup(data);
     refs.galleryMovies.innerHTML = markup;
     return;

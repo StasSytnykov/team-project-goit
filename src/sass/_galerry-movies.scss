@@ -1,7 +1,7 @@
 .gallery-movies {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   margin-inline: auto;    
   
     @media screen and (min-width:320px) and (max-width:768px) {
@@ -12,6 +12,7 @@
     }
     @media screen and (min-width:1024px){
       max-width: 1024px;
+      justify-content: left;
     }
     
 }

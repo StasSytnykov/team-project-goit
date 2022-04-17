@@ -1,19 +1,24 @@
 import refs from './refs';
+import { onCheckTheme } from './on-check-theme';
 
 const onOpenFooterModal = event => {
   event.preventDefault();
   refs.footerBackdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onCloseFooterModalOnEsc);
+  refs.body.style.overflow = 'hidden';
+  onCheckTheme();
 };
 
 const onCloseFooterModal = () => {
   refs.footerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onCloseFooterModalOnEsc);
+  refs.body.style.overflow = 'visible';
 };
 
 const onCloseModalOnBackdropClick = event => {
   if (event.currentTarget === event.target) {
     refs.footerBackdrop.classList.add('is-hidden');
+    refs.body.style.overflow = 'visible';
   }
 };
 
