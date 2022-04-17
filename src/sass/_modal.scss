@@ -52,12 +52,13 @@
 
 .modal__close-btn {
     position: absolute;
+    border-radius: 5px;
     top: 8px;
     right: 8px;
     border: none;
     padding: 0;
     background-color: #fff;
-    
+
         &:hover,
         &:focus {
         background-color: #FF6B08;        
@@ -251,6 +252,8 @@
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;
+    transition: box-shadow 250ms ease-in-out;
+    cursor: pointer;
 
     @media screen and (min-width: 768px) {
         width: 125px;
