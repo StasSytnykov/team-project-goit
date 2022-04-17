@@ -72,9 +72,31 @@
   background: linear-gradient(315deg, #03a9f4, #ff0058);
 }
 
-.footer-modal__pic {
+.footer-modal__img-thumb {
+  height: 300px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 375px;
+    height: 478px;
+  }
+}
+
+.footer-modal__img-thumb > img {
   display: block;
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.footer-modal__pic {
   border-radius: 5px;
+  height: 300px;
 
   @media screen and (min-width: 768px) {
     width: 264px;
@@ -88,7 +110,7 @@
 }
 
 .footer-modal__thumb {
-  padding: 15px;
+  padding: 20px 10px;
   height: 100px;
   position: relative;
 

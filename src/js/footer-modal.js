@@ -1,19 +1,24 @@
 import refs from './refs';
 
+const body = document.querySelector('body');
+
 const onOpenFooterModal = event => {
   event.preventDefault();
   refs.footerBackdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onCloseFooterModalOnEsc);
+  body.style.overflow = 'hidden';
 };
 
 const onCloseFooterModal = () => {
   refs.footerBackdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onCloseFooterModalOnEsc);
+  body.style.overflow = 'visible';
 };
 
 const onCloseModalOnBackdropClick = event => {
   if (event.currentTarget === event.target) {
     refs.footerBackdrop.classList.add('is-hidden');
+    body.style.overflow = 'visible';
   }
 };
 
