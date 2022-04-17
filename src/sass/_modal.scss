@@ -281,3 +281,38 @@
     background-color: #fff;
     border: 1px solid #000000;
 }
+
+
+
+.modal_info-error{
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 70%;
+    }
+    @media screen and (min-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100%;
+    }
+}
+
+.modal-img__error{
+    margin-top: 30px;
+    width: 240px;
+    height: 240px;
+    color: #FF6B01;
+    @media screen and (min-width: 768px) {
+        width: 360px;
+        height: 360px;
+    }
+}
+
+.modal-text__error{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+}
