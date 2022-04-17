@@ -70,7 +70,12 @@ async function onOpenModal(e) {
         queueBtnDelete.classList.add('visually-hidden');
       });
     })
-    .catch(error => renderOfErrorMarkup(error));
+    .catch(error => {
+      if (e.target.closest('.photo-card')) {
+        renderOfErrorMarkup(error);
+      }
+      return;
+    });
 }
 
 function renderOfModal(item) {
