@@ -38,6 +38,13 @@ async function onOpenModal(e) {
 
             watchBtn.addEventListener("click", function addMovieInStorage(event) {
 
+                if (queueLibrary) {
+                    localStorageService.deleteMovie(filmInfo, 'queue');
+
+                    queueBtn.classList.remove('visually-hidden');
+                    queueBtnDelete.classList.add('visually-hidden');
+                }
+
                 const movieKey = event.target.dataset.key;
                 localStorageService.addMovie(filmInfo, movieKey);
 
@@ -57,6 +64,13 @@ async function onOpenModal(e) {
             
             queueBtn.addEventListener("click", function onQueueBtnClick(event) {
 
+                if (watchedLibrary) {
+                    localStorageService.deleteMovie(filmInfo, 'watched');
+
+                    watchBtn.classList.remove('visually-hidden');
+                    watchBtnDelete.classList.add('visually-hidden');
+                }
+                    
                 const movieKey = event.target.dataset.key;
                 localStorageService.addMovie(filmInfo, movieKey);
 
