@@ -8,6 +8,7 @@ const onClickHomeBtn = event => {
   refs.searchBtn.style.display = 'block';
   refs.libraryBtnList.style.display = 'none';
   refs.backgroundContent.classList.remove('library-content');
+  refs.headerBtn.forEach(el => el.classList.remove('active'));
   fetchPopularFilms();
 };
 
