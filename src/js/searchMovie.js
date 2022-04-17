@@ -6,7 +6,7 @@ const api = new ApiService();
 
 refs.searchBtn.addEventListener('submit', getMovie);
 
-function getMovie(e) {
+export function getMovie(e) {
   refs.spiner.style.display = 'block';
   e.preventDefault();
   refs.emptyResult.innerHTML = '';

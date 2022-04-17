@@ -17,7 +17,7 @@ export default class ApiService {
     });
   }
 
-  fetchMovieBySearch(page) {
+  fetchMovieBySearch(page = 1) {
     return this.fetchMovies('search/movie', page);
   }
 
