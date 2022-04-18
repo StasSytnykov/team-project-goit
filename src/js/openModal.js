@@ -13,6 +13,11 @@ const localStorageService = new LocalStorageService();
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
+  // async function onOpenModal(e) {
+  if (e.target.parentElement.parentElement.className !== 'photo-card') {
+    return;
+  }
+
   let idOfCard = e.target.parentElement.parentElement.id;
   const fetchResponse = newFetchMovieById.fetchInfoOfFilm(idOfCard);
   console.log(fetchResponse);
