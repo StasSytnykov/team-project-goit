@@ -2,6 +2,7 @@ import refs from './refs';
 import ApiService from './api-service';
 import makeMovieMarkup from './moviesMarkup';
 import instance from './pagination-library';
+import { fetchPopularFilms } from './popularFilms';
 
 const api = new ApiService();
 
@@ -20,6 +21,7 @@ export function getMovie(e) {
     .fetchMovieBySearch()
     .then(data => {
       if (data.results.length === 0) {
+        fetchPopularFilms();
         refs.emptyResult.textContent =
           'Search result not successful. Enter the correct movie name and try again.';
       }
