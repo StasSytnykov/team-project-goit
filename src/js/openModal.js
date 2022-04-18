@@ -3,6 +3,7 @@ import ApiService from './api-service';
 import genresArr from './searchMovie';
 import emptyImg from './images/img_not_found.jpg';
 import LocalStorageService from '../js/local-storage';
+import oopsImg from './images/oops.png'
 // function onOpenCard(e) {
 //     if(e.curren)
 // }
@@ -107,40 +108,39 @@ function renderOfModal(item) {
             </div>
             
             <div class="modal_info-block">
-                <h2 class="modal_title">${original_title}</h2>
-            
-                <table class="modal_info">
-                    <tr>
-                        <td class="modal_info-colonm1">Vote / Votes</td>
-                        <td class="modal_info-colonm2 rating-cell">
-                            <div class="modal_info-rating">
-                                <span>${vote_average}</span>
-                            </div>
-                            <span class="modal_info-line">/</span>
-                            <div class="modal_info-votes">
-                                <span>${vote_count}</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="modal_info-colonm1">Popularity</td>
-                        <td class="modal_info-colonm2">${popularity}</td>
-                    </tr>
-                    <tr>
-                        <td class="modal_info-colonm1">Original Title</td>
-                        <td class="modal_info-colonm2 orig_title">${original_title}</td>
-                    </tr>
-                    <tr>
-                        <td class="modal_info-colonm1">Genre</td>
-                        <td class="modal_info-colonm2">${listOfGenres.join(', ')}</td>
-                    </tr>
-                </table>
-            
-                <h3 class="modal_title-disc">About</h3>
-                <p class="modal_disc">${overview}
-                </p>
+              <h2 class="modal_title">${original_title}</h2>
 
-                <div class="modal_buttons">
+              <ul class="modal_info-list">
+                <li class="modal_info-item">
+                  <div class="modal_info-category">Vote / Votes</div>
+                  <div class="modal_info-value vote-value">
+                    <div class="modal_info-rating">
+                      <span>${vote_average}</span>
+                    </div>
+                    <span class="modal_info-line">/</span>
+                    <div class="modal_info-votes">
+                      <span>${vote_count}</span>
+                    </div>
+                  </div>
+                </li>
+                <li class="modal_info-item">
+                  <div class="modal_info-category">Popularity</div>
+                  <div class="modal_info-value">${popularity}</div>
+                </li>
+                <li class="modal_info-item">
+                  <div class="modal_info-category">Original Title</div>
+                  <div class="modal_info-value orig_title">${original_title}</div>
+                </li>
+                <li class="modal_info-item">
+                  <div class="modal_info-category">Genre</div>
+                  <div class="modal_info-value">${listOfGenres.join(', ')}</div>
+                </li>
+              </ul>
+            
+              <h3 class="modal_title-disc">About</h3>
+              <p class="modal_disc">${overview}</p>
+
+              <div class="modal_buttons">
                     <button type="button" data-key="watched" class="modal_button modal_button-watch">
                         add to Watched
                     </button>
@@ -166,9 +166,10 @@ const renderMarkupOfModal = item => {
 };
 
 const renderOfError = () => {
+  let poster = oopsImg;
   return `<div class="modal_info-error">
-        <img class="modal-img__error" src="./js/images/error-film.png" />
-        <span class="modal-text__error">Ой-ой, что-то пошло не так,попробуйте позже...</span>
+        <img class="modal-img__error" src="${poster}" />
+        <span class="modal-text__error">Sorry, something went wrong:( <br> Please, try again later...</span>
       </div>`;
 };
 
