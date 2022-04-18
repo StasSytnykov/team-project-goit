@@ -2,6 +2,7 @@ import refs from './refs';
 import ApiService from './api-service';
 import makeMovieMarkup from './moviesMarkup';
 import instance from './pagination-library';
+import { fetchPopularFilms } from './popularFilms';
 
 const api = new ApiService();
 
@@ -20,6 +21,7 @@ export function getMovie(e) {
     .fetchMovieBySearch()
     .then(data => {
       if (data.results.length === 0) {
+        fetchPopularFilms();
         refs.emptyResult.textContent =
           'Search result not successful. Enter the correct movie name and try again.';
       }
@@ -32,8 +34,10 @@ export function getMovie(e) {
 }
 
 function handleError(err) {
-  refs.galleryMovies.innerHTML = '';
-  refs.emptyResult.innerHTML = err.message;
+  setTimeout(() => {
+    refs.spiner.style.display = 'none';
+    refs.emptyResult.innerHTML = err.message;
+  }, 200);
 }
 
 export function renderMovies(data) {
@@ -41,7 +45,7 @@ export function renderMovies(data) {
   refs.galleryMovies.innerHTML = markup;
   setTimeout(() => {
     refs.spiner.style.display = 'none';
-  }, 500);
+  }, 200);
 }
 
 function getGenres() {
