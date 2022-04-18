@@ -61,4 +61,5 @@ function getGenres() {
 }
 
 const genresArr = getGenres();
+console.log(genresArr);
 export default genresArr;
