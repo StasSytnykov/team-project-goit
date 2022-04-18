@@ -22,7 +22,6 @@ function getMovie(e) {
       const filmInfoRate = document.querySelectorAll('.film-info__rate');
       filmInfoRate.forEach(film => film.remove());
       refs.searchBtn.searchQuery.value = '';
-     
     })
     .catch(err => handleError(err));
 }
@@ -36,8 +35,9 @@ function renderMovies(data) {
   console.log(data.results);
   const markup = makeMovieMarkup(data.results);
   refs.galleryMovies.innerHTML = markup;
-  setTimeout(()=>{refs.spiner.style.display = 'none';},500)
-  
+  setTimeout(() => {
+    refs.spiner.style.display = 'none';
+  }, 500);
 }
 
 function getGenres() {
@@ -53,4 +53,5 @@ function getGenres() {
 }
 
 const genresArr = getGenres();
+console.log(genresArr);
 export default genresArr;
