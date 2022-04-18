@@ -4,6 +4,7 @@ import genresArr from './searchMovie';
 import emptyImg from './images/img_not_found.jpg';
 import LocalStorageService from '../js/local-storage';
 import oopsImg from './images/oops.png';
+import onEscBtnClick from './modal';
 // function onOpenCard(e) {
 //     if(e.curren)
 // }
@@ -13,6 +14,7 @@ const localStorageService = new LocalStorageService();
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
 async function onOpenModal(e) {
+  window.addEventListener('keydown', onEscBtnClick);
   if (e.target.parentElement.parentElement.className !== 'photo-card') {
     return;
   }
