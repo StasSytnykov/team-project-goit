@@ -1,8 +1,7 @@
 import ApiService from './api-service';
 import { renderMovies } from './searchMovie';
 const api = new ApiService();
-const Pagination = require('tui-pagination');
-// import { Pagination } from 'tui-pagination';
+import Pagination from 'tui-pagination';
 
 const options = {
   totalItems: 500,
@@ -67,3 +66,5 @@ instance.on('afterMove', event => {
     renderMovies(data);
   });
 });
+
+export default instance;
