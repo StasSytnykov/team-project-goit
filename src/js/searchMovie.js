@@ -1,16 +1,21 @@
 import refs from './refs';
 import ApiService from './api-service';
 import makeMovieMarkup from './moviesMarkup';
+import instance from './pagination-library';
 
 const api = new ApiService();
 
 refs.searchBtn.addEventListener('submit', getMovie);
 
-function getMovie(e) {
+export function getMovie(e) {
   refs.spiner.style.display = 'block';
   e.preventDefault();
   refs.emptyResult.innerHTML = '';
-  api.query = e.currentTarget.elements.searchQuery.value.trim();
+  refs.tui.style.display = 'flex';
+  refs.pagi.style.display = 'none';
+  localStorage.setItem('query', e.currentTarget.elements.searchQuery.value.trim());
+  instance.reset();
+
   api
     .fetchMovieBySearch()
     .then(data => {
@@ -31,8 +36,7 @@ function handleError(err) {
   refs.emptyResult.innerHTML = err.message;
 }
 
-function renderMovies(data) {
-  console.log(data.results);
+export function renderMovies(data) {
   const markup = makeMovieMarkup(data.results);
   refs.galleryMovies.innerHTML = markup;
   setTimeout(() => {

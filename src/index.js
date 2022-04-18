@@ -12,3 +12,4 @@ import './js/moon-sun';
 import './js/footer-modal';
 import './js/openModal';
 import './js/local-storage';
+import './js/pagination-library';

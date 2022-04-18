@@ -4,10 +4,17 @@ import makeMovieMarkup from './moviesMarkup';
 refs.libraryBtn.addEventListener('click', library);
 refs.libraryLi.addEventListener('click', libraryClick);
 
+let curPage = 1;
+const onPage = 10;
+let limit = 0;
+let data = [];
+
 function library(ev) {
   if (ev.target.type !== 'button') return;
 
-  const data = JSON.parse(localStorage.getItem(ev.target.name));
+  data = JSON.parse(localStorage.getItem(ev.target.name));
+  limit = data ? data.length : 0;
+  curPage = 1;
 
   if (!ev.target.classList.contains('active')) {
     refs.headerBtn.forEach(el => {
@@ -16,7 +23,7 @@ function library(ev) {
     ev.target.classList.add('active');
   }
   if (data && data.length > 0) {
-    const markup = makeMovieMarkup(data);
+    const markup = makeMovieMarkup(data.slice(0, onPage));
     refs.galleryMovies.innerHTML = markup;
     return;
   }
@@ -30,16 +37,33 @@ function libraryClick(ev) {
   refs.searchBtn.style.display = 'none';
   refs.libraryBtnList.style.display = 'flex';
   refs.containerHeader.classList.add('library-content');
+  refs.pagidiv.style.display = 'none';
 
   refs.libraryBtnList.style.display = 'flex';
   refs.watchedBtn.classList.add('active');
+  document.addEventListener('scroll', infiniteScroll, true);
 
-  const data = JSON.parse(localStorage.getItem('watched'));
-
+  curPage = 1;
+  data = JSON.parse(localStorage.getItem('watched'));
+  limit = data ? data.length : 0;
   if (data && data.length > 0) {
-    const markup = makeMovieMarkup(data);
+    const markup = makeMovieMarkup(data.slice(0, onPage));
     refs.galleryMovies.innerHTML = markup;
     return;
   }
   refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+}
+
+export default function infiniteScroll() {
+  const height = document.body.offsetHeight;
+  const screenHeight = window.innerHeight;
+  const scrolled = window.scrollY;
+  const limit = height - screenHeight / 4;
+  const position = scrolled + screenHeight;
+
+  if (position >= limit) {
+    const mark = makeMovieMarkup(data.slice((curPage - 1) * onPage, curPage * onPage));
+    refs.galleryMovies.insertAdjacentHTML('beforeend', mark);
+    curPage += 1;
+  }
 }
