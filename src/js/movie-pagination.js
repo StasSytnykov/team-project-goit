@@ -26,7 +26,7 @@ lastDotsRef.style.display = 'flex';
 
 const api = new ApiService();
 
-const moviePagination = new Pagination({
+export const moviePagination = new Pagination({
   total: 1000,
   onChange(value) {
     handlePageChange(value);

@@ -1,6 +1,7 @@
 import refs from './refs';
 import { fetchPopularFilms } from './popularFilms';
 import infiniteScroll from './library';
+import { moviePagination } from './movie-pagination';
 
 const onClickHomeBtn = event => {
   event.preventDefault();
@@ -13,6 +14,7 @@ const onClickHomeBtn = event => {
   refs.pagidiv.style.display = 'block';
   document.removeEventListener('scroll', infiniteScroll, true);
   fetchPopularFilms();
+  moviePagination.firstPage();
 };
 
 refs.homeLi.addEventListener('click', onClickHomeBtn);
