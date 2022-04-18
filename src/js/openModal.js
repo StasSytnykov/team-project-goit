@@ -13,7 +13,6 @@ const localStorageService = new LocalStorageService();
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
-  console.log(e.target.className);
   if (e.target.className == 'gallery-movies') {
     return;
   }
