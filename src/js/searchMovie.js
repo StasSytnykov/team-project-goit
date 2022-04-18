@@ -12,7 +12,7 @@ export function getMovie(e) {
   refs.emptyResult.innerHTML = '';
   refs.tui.style.display = 'flex';
   refs.pagi.style.display = 'none';
-  api.query = e.currentTarget.elements.searchQuery.value.trim();
+  localStorage.setItem('query', e.currentTarget.elements.searchQuery.value.trim());
   api
     .fetchMovieBySearch()
     .then(data => {
