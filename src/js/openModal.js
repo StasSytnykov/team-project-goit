@@ -3,7 +3,7 @@ import ApiService from './api-service';
 import genresArr from './searchMovie';
 import emptyImg from './images/img_not_found.jpg';
 import LocalStorageService from '../js/local-storage';
-import oopsImg from './images/oops.png'
+import oopsImg from './images/oops.png';
 // function onOpenCard(e) {
 //     if(e.curren)
 // }
@@ -12,91 +12,105 @@ const localStorageService = new LocalStorageService();
 
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
-async function onOpenModal(e) {
+function onOpenModal(e) {
   let idOfCard = e.target.parentElement.parentElement.id;
-  const fetchResponse = await newFetchMovieById
-    .fetchInfoOfFilm(idOfCard)
-    .then(filmInfo => {
-      renderMarkupOfModal(filmInfo);
+  const fetchResponse = newFetchMovieById.fetchInfoOfFilm(idOfCard);
+  console.log(fetchResponse);
+  // .then(filmInfo => {
+  //   renderMarkupOfModal(filmInfo);
+  renderMarkupOfModal(fetchResponse);
 
-      //   Добавил функции добавления фильма в local storage
+  //   Добавил функции добавления фильма в local storage
 
-      const watchBtn = document.querySelector('.modal_button-watch');
-      const watchBtnDelete = document.querySelector('.btn_watch-del');
-      const queueBtn = document.querySelector('.modal_button-queue');
-      const queueBtnDelete = document.querySelector('.btn_queue-del');
+  const watchBtn = document.querySelector('.modal_button-watch');
+  const watchBtnDelete = document.querySelector('.btn_watch-del');
+  const queueBtn = document.querySelector('.modal_button-queue');
+  const queueBtnDelete = document.querySelector('.btn_queue-del');
 
-      const watchedLibrary = localStorageService.checkMovie(filmInfo, 'watched');
-      const queueLibrary = localStorageService.checkMovie(filmInfo, 'queue');
+  const watchedLibrary = localStorageService.checkMovie(fetchResponse, 'watched');
+  const queueLibrary = localStorageService.checkMovie(fetchResponse, 'queue');
 
-      if (watchedLibrary) {
-        watchBtn.classList.add('visually-hidden');
-        watchBtnDelete.classList.remove('visually-hidden');
-      }
+  if (watchedLibrary) {
+    watchBtn.classList.add('visually-hidden');
+    watchBtnDelete.classList.remove('visually-hidden');
+  }
 
-      if (queueLibrary) {
-        queueBtn.classList.add('visually-hidden');
-        queueBtnDelete.classList.remove('visually-hidden');
-      }
+  if (queueLibrary) {
+    queueBtn.classList.add('visually-hidden');
+    queueBtnDelete.classList.remove('visually-hidden');
+  }
 
-      watchBtn.addEventListener('click', function addMovieInStorage(event) {
-        if (queueLibrary) {
-          localStorageService.deleteMovie(filmInfo, 'queue');
+  watchBtn.addEventListener('click', function addMovieInStorage(event) {
+    if (queueLibrary) {
+      localStorageService.deleteMovie(fetchResponse, 'queue');
 
-          queueBtn.classList.remove('visually-hidden');
-          queueBtnDelete.classList.add('visually-hidden');
-        }
+      queueBtn.classList.remove('visually-hidden');
+      queueBtnDelete.classList.add('visually-hidden');
+    }
 
-        const movieKey = event.target.dataset.key;
-        localStorageService.addMovie(filmInfo, movieKey);
+    const movieKey = event.target.dataset.key;
+    localStorageService.addMovie(fetchResponse, movieKey);
 
-        watchBtn.classList.add('visually-hidden');
-        watchBtnDelete.classList.remove('visually-hidden');
-      });
+    watchBtn.classList.add('visually-hidden');
+    watchBtnDelete.classList.remove('visually-hidden');
+  });
 
-      watchBtnDelete.addEventListener('click', function deleteMovieFromStorage(event) {
-        const movieKey = event.target.dataset.key;
-        localStorageService.deleteMovie(filmInfo, movieKey);
+  watchBtnDelete.addEventListener('click', function deleteMovieFromStorage(event) {
+    const movieKey = event.target.dataset.key;
+    localStorageService.deleteMovie(fetchResponse, movieKey);
 
-        watchBtn.classList.remove('visually-hidden');
-        watchBtnDelete.classList.add('visually-hidden');
-      });
+    watchBtn.classList.remove('visually-hidden');
+    watchBtnDelete.classList.add('visually-hidden');
+  });
 
-      queueBtn.addEventListener('click', function onQueueBtnClick(event) {
-        if (watchedLibrary) {
-          localStorageService.deleteMovie(filmInfo, 'watched');
+  queueBtn.addEventListener('click', function onQueueBtnClick(event) {
+    if (watchedLibrary) {
+      localStorageService.deleteMovie(fetchResponse, 'watched');
 
-          watchBtn.classList.remove('visually-hidden');
-          watchBtnDelete.classList.add('visually-hidden');
-        }
+      watchBtn.classList.remove('visually-hidden');
+      watchBtnDelete.classList.add('visually-hidden');
+    }
 
-        const movieKey = event.target.dataset.key;
-        localStorageService.addMovie(filmInfo, movieKey);
+    const movieKey = event.target.dataset.key;
+    localStorageService.addMovie(fetchResponse, movieKey);
 
-        queueBtn.classList.add('visually-hidden');
-        queueBtnDelete.classList.remove('visually-hidden');
-      });
+    queueBtn.classList.add('visually-hidden');
+    queueBtnDelete.classList.remove('visually-hidden');
+  });
 
-      queueBtnDelete.addEventListener('click', function deleteQueueFromStorage(event) {
-        const movieKey = event.target.dataset.key;
-        localStorageService.deleteMovie(filmInfo, movieKey);
+  queueBtnDelete.addEventListener('click', function deleteQueueFromStorage(event) {
+    const movieKey = event.target.dataset.key;
+    localStorageService.deleteMovie(fetchResponse, movieKey);
 
-        queueBtn.classList.remove('visually-hidden');
-        queueBtnDelete.classList.add('visually-hidden');
-      });
-    })
-    .catch(error => {
-      if (e.target.closest('.photo-card')) {
-        renderOfErrorMarkup(error);
-      }
-      return;
-    });
+    queueBtn.classList.remove('visually-hidden');
+    queueBtnDelete.classList.add('visually-hidden');
+  });
+
+  // .catch(error => {
+  //   if (e.target.closest('.photo-card')) {
+  //     renderOfErrorMarkup(error);
+  //   }
+  //   return;
+  // });
+
+  if (!fetchResponse) {
+    renderOfErrorMarkup();
+  }
 }
 
 function renderOfModal(item) {
-  const { vote_average, original_title, genres, overview, popularity, poster_path, vote_count } =
+  const { vote_average, original_title, genre_ids, overview, popularity, poster_path, vote_count } =
     item;
-  const listOfGenres = genres.length > 0 ? genres.map(genre => genre.name) : [];
+
+  let listOfGenres = [];
+
+  if (genre_ids && genre_ids.length !== 0) {
+    listOfGenres = genresArr
+      .filter(genreId => genre_ids.includes(genreId.id))
+      .map(genre => genre.name);
+  }
+
+  // const listOfGenres = genres.length > 0 ? genres.map(genre => genre.name) : [];
   let poster = emptyImg;
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
@@ -173,7 +187,7 @@ const renderOfError = () => {
       </div>`;
 };
 
-const renderOfErrorMarkup = item => {
+const renderOfErrorMarkup = () => {
   const markup = renderOfError();
   refs.backdrop.classList.remove('is-hidden');
   refs.modalInfo.innerHTML = markup;
