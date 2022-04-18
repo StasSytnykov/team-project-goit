@@ -3,7 +3,7 @@ import ApiService from './api-service';
 import genresArr from './searchMovie';
 import emptyImg from './images/img_not_found.jpg';
 import LocalStorageService from '../js/local-storage';
-import oopsImg from './images/oops.png'
+import oopsImg from './images/oops.png';
 // function onOpenCard(e) {
 //     if(e.curren)
 // }
@@ -13,6 +13,9 @@ const localStorageService = new LocalStorageService();
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
 async function onOpenModal(e) {
+  if (e.target.parentElement.parentElement.className !== 'photo-card') {
+    return;
+  }
   let idOfCard = e.target.parentElement.parentElement.id;
   const fetchResponse = await newFetchMovieById
     .fetchInfoOfFilm(idOfCard)
