@@ -1,6 +1,7 @@
 import refs from './refs';
 import ApiService from './api-service';
 import makeMovieMarkup from './moviesMarkup';
+import instance from './pagination-library';
 
 const api = new ApiService();
 
@@ -13,6 +14,8 @@ export function getMovie(e) {
   refs.tui.style.display = 'flex';
   refs.pagi.style.display = 'none';
   localStorage.setItem('query', e.currentTarget.elements.searchQuery.value.trim());
+  instance.reset();
+
   api
     .fetchMovieBySearch()
     .then(data => {
