@@ -8,7 +8,8 @@ export default class ApiService {
   }
 
   fetchMovies(endpoint, page) {
-      const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${page}&include_adult=false`;
+    this.query = localStorage.getItem('query') ? localStorage.getItem('query') : '';
+    const url = `${BASE_URL}/${endpoint}?api_key=${API_KEY}&language=en-US&query=${this.searchQuery}&page=${page}&include_adult=false`;
     return fetch(url).then(res => {
       if (res.ok) {
         return res.json();

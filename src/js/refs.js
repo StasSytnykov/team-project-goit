@@ -27,6 +27,7 @@ const refs = {
   modalInfo: document.querySelector('.modal_info-total'),
   tui: document.querySelector('.tui-pagination'),
   pagi: document.querySelector('.pagination__list'),
+  pagidiv: document.querySelector('.pagination'),
 };
 
 export default refs;

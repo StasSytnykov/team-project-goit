@@ -37,6 +37,7 @@ function libraryClick(ev) {
   refs.searchBtn.style.display = 'none';
   refs.libraryBtnList.style.display = 'flex';
   refs.containerHeader.classList.add('library-content');
+  refs.pagidiv.style.display = 'none';
 
   refs.libraryBtnList.style.display = 'flex';
   refs.watchedBtn.classList.add('active');
