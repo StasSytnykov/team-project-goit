@@ -12,94 +12,98 @@ const localStorageService = new LocalStorageService();
 
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
-async function onOpenModal(e) {
-  if (e.target.parentElement.parentElement.className !== 'photo-card') {
+function onOpenModal(e) {
+  if (e.target.className == 'gallery-movies') {
     return;
   }
-  let idOfCard = e.target.parentElement.parentElement.id;
-  const fetchResponse = await newFetchMovieById
-    .fetchInfoOfFilm(idOfCard)
-    .then(filmInfo => {
-      renderMarkupOfModal(filmInfo);
 
-      //   Добавил функции добавления фильма в local storage
+  let idOfCard = e.target.closest('.photo-card').id;
+  const fetchResponse = newFetchMovieById.fetchInfoOfFilm(idOfCard);
+  renderMarkupOfModal(fetchResponse);
 
-      const watchBtn = document.querySelector('.modal_button-watch');
-      const watchBtnDelete = document.querySelector('.btn_watch-del');
-      const queueBtn = document.querySelector('.modal_button-queue');
-      const queueBtnDelete = document.querySelector('.btn_queue-del');
+  //   Добавил функции добавления фильма в local storage
 
-      const watchedLibrary = localStorageService.checkMovie(filmInfo, 'watched');
-      const queueLibrary = localStorageService.checkMovie(filmInfo, 'queue');
+  const watchBtn = document.querySelector('.modal_button-watch');
+  const watchBtnDelete = document.querySelector('.btn_watch-del');
+  const queueBtn = document.querySelector('.modal_button-queue');
+  const queueBtnDelete = document.querySelector('.btn_queue-del');
 
-      if (watchedLibrary) {
-        watchBtn.classList.add('visually-hidden');
-        watchBtnDelete.classList.remove('visually-hidden');
-      }
+  const watchedLibrary = localStorageService.checkMovie(fetchResponse, 'watched');
+  const queueLibrary = localStorageService.checkMovie(fetchResponse, 'queue');
 
-      if (queueLibrary) {
-        queueBtn.classList.add('visually-hidden');
-        queueBtnDelete.classList.remove('visually-hidden');
-      }
+  if (watchedLibrary) {
+    watchBtn.classList.add('visually-hidden');
+    watchBtnDelete.classList.remove('visually-hidden');
+  }
 
-      watchBtn.addEventListener('click', function addMovieInStorage(event) {
-        if (queueLibrary) {
-          localStorageService.deleteMovie(filmInfo, 'queue');
+  if (queueLibrary) {
+    queueBtn.classList.add('visually-hidden');
+    queueBtnDelete.classList.remove('visually-hidden');
+  }
 
-          queueBtn.classList.remove('visually-hidden');
-          queueBtnDelete.classList.add('visually-hidden');
-        }
+  watchBtn.addEventListener('click', function addMovieInStorage(event) {
+    if (queueLibrary) {
+      localStorageService.deleteMovie(fetchResponse, 'queue');
 
-        const movieKey = event.target.dataset.key;
-        localStorageService.addMovie(filmInfo, movieKey);
+      queueBtn.classList.remove('visually-hidden');
+      queueBtnDelete.classList.add('visually-hidden');
+    }
 
-        watchBtn.classList.add('visually-hidden');
-        watchBtnDelete.classList.remove('visually-hidden');
-      });
+    const movieKey = event.target.dataset.key;
+    localStorageService.addMovie(fetchResponse, movieKey);
 
-      watchBtnDelete.addEventListener('click', function deleteMovieFromStorage(event) {
-        const movieKey = event.target.dataset.key;
-        localStorageService.deleteMovie(filmInfo, movieKey);
+    watchBtn.classList.add('visually-hidden');
+    watchBtnDelete.classList.remove('visually-hidden');
+  });
 
-        watchBtn.classList.remove('visually-hidden');
-        watchBtnDelete.classList.add('visually-hidden');
-      });
+  watchBtnDelete.addEventListener('click', function deleteMovieFromStorage(event) {
+    const movieKey = event.target.dataset.key;
+    localStorageService.deleteMovie(fetchResponse, movieKey);
 
-      queueBtn.addEventListener('click', function onQueueBtnClick(event) {
-        if (watchedLibrary) {
-          localStorageService.deleteMovie(filmInfo, 'watched');
+    watchBtn.classList.remove('visually-hidden');
+    watchBtnDelete.classList.add('visually-hidden');
+  });
 
-          watchBtn.classList.remove('visually-hidden');
-          watchBtnDelete.classList.add('visually-hidden');
-        }
+  queueBtn.addEventListener('click', function onQueueBtnClick(event) {
+    if (watchedLibrary) {
+      localStorageService.deleteMovie(fetchResponse, 'watched');
 
-        const movieKey = event.target.dataset.key;
-        localStorageService.addMovie(filmInfo, movieKey);
+      watchBtn.classList.remove('visually-hidden');
+      watchBtnDelete.classList.add('visually-hidden');
+    }
 
-        queueBtn.classList.add('visually-hidden');
-        queueBtnDelete.classList.remove('visually-hidden');
-      });
+    const movieKey = event.target.dataset.key;
+    localStorageService.addMovie(fetchResponse, movieKey);
 
-      queueBtnDelete.addEventListener('click', function deleteQueueFromStorage(event) {
-        const movieKey = event.target.dataset.key;
-        localStorageService.deleteMovie(filmInfo, movieKey);
+    queueBtn.classList.add('visually-hidden');
+    queueBtnDelete.classList.remove('visually-hidden');
+  });
 
-        queueBtn.classList.remove('visually-hidden');
-        queueBtnDelete.classList.add('visually-hidden');
-      });
-    })
-    .catch(error => {
-      if (e.target.closest('.photo-card')) {
-        renderOfErrorMarkup(error);
-      }
-      return;
-    });
+  queueBtnDelete.addEventListener('click', function deleteQueueFromStorage(event) {
+    const movieKey = event.target.dataset.key;
+    localStorageService.deleteMovie(fetchResponse, movieKey);
+
+    queueBtn.classList.remove('visually-hidden');
+    queueBtnDelete.classList.add('visually-hidden');
+  });
+
+  if (!fetchResponse) {
+    renderOfErrorMarkup();
+  }
 }
 
 function renderOfModal(item) {
-  const { vote_average, original_title, genres, overview, popularity, poster_path, vote_count } =
+  const { vote_average, original_title, genre_ids, overview, popularity, poster_path, vote_count } =
     item;
-  const listOfGenres = genres.length > 0 ? genres.map(genre => genre.name) : [];
+
+  let listOfGenres = [];
+
+  if (genre_ids && genre_ids.length !== 0) {
+    listOfGenres = genresArr
+      .filter(genreId => genre_ids.includes(genreId.id))
+      .map(genre => genre.name);
+  }
+
   let poster = emptyImg;
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
@@ -176,7 +180,7 @@ const renderOfError = () => {
       </div>`;
 };
 
-const renderOfErrorMarkup = item => {
+const renderOfErrorMarkup = () => {
   const markup = renderOfError();
   refs.backdrop.classList.remove('is-hidden');
   refs.modalInfo.innerHTML = markup;
