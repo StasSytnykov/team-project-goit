@@ -1,4 +1,6 @@
 const refs = {
+  closeIcon: document.querySelector('.modal__close-icon'),
+  modal: document.querySelector('.modal'),
   searchBtn: document.querySelector('.search-form'),
   libraryBtn: document.querySelector('header'),
   galleryMovies: document.querySelector('.gallery-movies'),
@@ -15,6 +17,17 @@ const refs = {
   emptyResult: document.querySelector('.empty-result'),
   backgroundContent: document.querySelector('.content'),
   logo: document.querySelector('.nav__logo'),
+  footerLink: document.querySelector('.footer__modal-open'),
+  footerBackdrop: document.querySelector('[data-action="deleted-class"]'),
+  body: document.querySelector('body'),
+  footerModal: document.querySelector('div[data-action="check-theme"]'),
+  modalCloseBtn: document.querySelector('.footer-modal__close-btn'),
+  toBtnTop: document.querySelector('.btn-to-top'),
+  spiner: document.querySelector('.foo'),
+  modalInfo: document.querySelector('.modal_info-total'),
+  tui: document.querySelector('.tui-pagination'),
+  pagi: document.querySelector('.pagination__list'),
+  pagidiv: document.querySelector('.pagination'),
 };
 
 export default refs;

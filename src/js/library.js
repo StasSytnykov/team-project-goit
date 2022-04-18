@@ -1,25 +1,20 @@
 import refs from './refs';
 import makeMovieMarkup from './moviesMarkup';
-import template from '../templates/movieCard.hbs';
-
-async function getData(page, key) {
-  const data = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=c650d1c0c307d1ff6855b3a117a6cfa1&page=${page}`,
-  )
-    .then(responce => responce.json())
-    .then(data => {
-      localStorage.setItem(key, JSON.stringify(data.results));
-    });
-}
-// getData(10, 'watched');
-getData(12, 'queue');
 
 refs.libraryBtn.addEventListener('click', library);
 refs.libraryLi.addEventListener('click', libraryClick);
 
+let curPage = 1;
+const onPage = 10;
+let limit = 0;
+let data = [];
+
 function library(ev) {
   if (ev.target.type !== 'button') return;
-  const data = JSON.parse(localStorage.getItem(ev.target.name));
+
+  data = JSON.parse(localStorage.getItem(ev.target.name));
+  limit = data ? data.length : 0;
+  curPage = 1;
 
   if (!ev.target.classList.contains('active')) {
     refs.headerBtn.forEach(el => {
@@ -27,8 +22,8 @@ function library(ev) {
     });
     ev.target.classList.add('active');
   }
-  if (data) {
-    const markup = makeMovieMarkup(data);
+  if (data && data.length > 0) {
+    const markup = makeMovieMarkup(data.slice(0, onPage));
     refs.galleryMovies.innerHTML = markup;
     return;
   }
@@ -42,15 +37,33 @@ function libraryClick(ev) {
   refs.searchBtn.style.display = 'none';
   refs.libraryBtnList.style.display = 'flex';
   refs.containerHeader.classList.add('library-content');
+  refs.pagidiv.style.display = 'none';
 
   refs.libraryBtnList.style.display = 'flex';
   refs.watchedBtn.classList.add('active');
-  console.log(refs.watchedBtn);
-  if (localStorage.getItem('watched')) {
-    const data = JSON.parse(localStorage.getItem('watched'));
-    const markup = makeMovieMarkup(data);
+  document.addEventListener('scroll', infiniteScroll, true);
+
+  curPage = 1;
+  data = JSON.parse(localStorage.getItem('watched'));
+  limit = data ? data.length : 0;
+  if (data && data.length > 0) {
+    const markup = makeMovieMarkup(data.slice(0, onPage));
     refs.galleryMovies.innerHTML = markup;
     return;
   }
   refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+}
+
+export default function infiniteScroll() {
+  const height = document.body.offsetHeight;
+  const screenHeight = window.innerHeight;
+  const scrolled = window.scrollY;
+  const limit = height - screenHeight / 4;
+  const position = scrolled + screenHeight;
+
+  if (position >= limit) {
+    const mark = makeMovieMarkup(data.slice((curPage - 1) * onPage, curPage * onPage));
+    refs.galleryMovies.insertAdjacentHTML('beforeend', mark);
+    curPage += 1;
+  }
 }
