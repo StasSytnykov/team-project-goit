@@ -44,14 +44,7 @@ export default class ApiService {
   }
 
   fetchInfoOfFilm(movie_id) {
-    // const url = `${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`;
-    // return fetch(url)
-    //   .then(response => response.json())
-    //   .then(results => {
-    //     return results;
-    //   });
-    const res = ApiService.filmArr.filter(el => el.id.toString() === movie_id);
-    return res[0];
+    return ApiService.filmArr.find(el => el.id.toString() === movie_id);
   }
 
   get query() {

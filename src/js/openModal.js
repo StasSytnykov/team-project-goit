@@ -13,16 +13,13 @@ const localStorageService = new LocalStorageService();
 refs.galleryMovies.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
-  // async function onOpenModal(e) {
-  if (e.target.parentElement.parentElement.className !== 'photo-card') {
+  console.log(e.target.className);
+  if (e.target.className == 'gallery-movies') {
     return;
   }
 
-  let idOfCard = e.target.parentElement.parentElement.id;
+  let idOfCard = e.target.closest('.photo-card').id;
   const fetchResponse = newFetchMovieById.fetchInfoOfFilm(idOfCard);
-  console.log(fetchResponse);
-  // .then(filmInfo => {
-  //   renderMarkupOfModal(filmInfo);
   renderMarkupOfModal(fetchResponse);
 
   //   Добавил функции добавления фильма в local storage
@@ -91,13 +88,6 @@ function onOpenModal(e) {
     queueBtnDelete.classList.add('visually-hidden');
   });
 
-  // .catch(error => {
-  //   if (e.target.closest('.photo-card')) {
-  //     renderOfErrorMarkup(error);
-  //   }
-  //   return;
-  // });
-
   if (!fetchResponse) {
     renderOfErrorMarkup();
   }
@@ -115,7 +105,6 @@ function renderOfModal(item) {
       .map(genre => genre.name);
   }
 
-  // const listOfGenres = genres.length > 0 ? genres.map(genre => genre.name) : [];
   let poster = emptyImg;
   if (poster_path) {
     poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
