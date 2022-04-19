@@ -6,11 +6,13 @@ refs.backdrop.addEventListener('click', onBackdropClick);
 function onCloseModal() {
     window.removeEventListener('keydown', onEscBtnClick)
     refs.backdrop.classList.add('is-hidden')
+    refs.body.style.overflow = 'visible';
 }
 
 function onBackdropClick(event) {
     if (event.currentTarget === event.target) {
         refs.backdrop.classList.add('is-hidden')
+        refs.body.style.overflow = 'visible';
     }
 }
 
