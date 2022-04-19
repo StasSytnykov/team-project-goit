@@ -65,7 +65,7 @@ export default function infiniteScroll() {
   const position = scrolled + screenHeight;
 
   if (position >= limit) {
-    const mark = makeMovieMarkup(data.slice((curPage - 1) * onPage, curPage * onPage));
+    const mark = makeMovieMarkup(data.slice(curPage * onPage, (curPage + 1) * onPage));
     refs.galleryMovies.insertAdjacentHTML('beforeend', mark);
     curPage += 1;
   }
