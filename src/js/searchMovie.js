@@ -48,7 +48,7 @@ export function renderMovies(data) {
   }, 200);
 }
 
-function getGenres() {
+export function getGenres() {
   let genresArr = [];
   api
     .fetchGenres()

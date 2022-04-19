@@ -5,7 +5,7 @@ import genresArr from './searchMovie';
 function makeMovieMarkup(movies) {
   return movies
     .map(
-       ({
+      ({
         title,
         name,
         release_date,
@@ -25,7 +25,7 @@ function makeMovieMarkup(movies) {
               .join(', ') + ', Other';
         }
 
-        if (genre_ids && genre_ids.length !== 0) {
+        if (genre_ids && genre_ids.length > 2) {
           filteredGenresArr =
             genresArr
               .filter(genreId => genre_ids.includes(genreId.id))
