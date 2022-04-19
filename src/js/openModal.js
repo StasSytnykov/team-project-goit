@@ -16,7 +16,6 @@ refs.galleryMovies.addEventListener('click', onOpenModal);
 function onOpenModal(e) {
   window.addEventListener('keydown', onEscBtnClick);
   if (e.target.className == 'gallery-movies') {
-
     return;
   }
 
@@ -96,8 +95,16 @@ function onOpenModal(e) {
 }
 
 function renderOfModal(item) {
-  const { vote_average, original_title, genre_ids, overview, popularity, poster_path, vote_count } =
-    item;
+  const {
+    vote_average,
+    original_title,
+    genre_ids,
+    overview,
+    popularity,
+    poster_path,
+    vote_count,
+    original_name,
+  } = item;
 
   let listOfGenres = [];
 
@@ -118,7 +125,7 @@ function renderOfModal(item) {
             </div>
             
             <div class="modal_info-block">
-              <h2 class="modal_title">${original_title}</h2>
+              <h2 class="modal_title">${original_name || original_title}</h2>
 
               <ul class="modal_info-list">
                 <li class="modal_info-item">
@@ -139,7 +146,7 @@ function renderOfModal(item) {
                 </li>
                 <li class="modal_info-item">
                   <div class="modal_info-category">Original Title</div>
-                  <div class="modal_info-value orig_title">${original_title}</div>
+                  <div class="modal_info-value orig_title">${original_name || original_title}</div>
                 </li>
                 <li class="modal_info-item">
                   <div class="modal_info-category">Genre</div>
