@@ -25,11 +25,13 @@ function addDarkTheme() {
             chk.checked = true;
             refs.modal.classList.add('dark')
             refs.modalInfo.classList.add('dark')
+            refs.pagi.classList.add('moon')
             
         }
         else {
             document.body.classList.remove('dark');
             refs.modal.classList.remove('dark')
+            refs.pagi.classList.remove('moon')
             chk.checked = false;
             refs.modalInfo.classList.remove('dark')
         }

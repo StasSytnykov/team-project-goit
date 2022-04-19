@@ -227,7 +227,7 @@
 
 .modal_disc {
     overflow-y: auto;
-    height: 260px;
+    max-height: 260px;
     margin: 0 0 20px 0;
 
     font-family: 'Roboto';
@@ -350,12 +350,13 @@
     color: #ffffff;
 }
 
-.dark td {
+.dark .modal_info-value {
     color: #ffffff;
 }
 
 .dark .modal_info-votes {
     background-color: #121212;
+    color: #ffffff;
 }
 
 .dark .modal__close-btn {
@@ -373,7 +374,8 @@
 
     &:hover,
     &:focus {
-        background-color: #121212;
+        color: #121212;
+        background-color: #ffffff;
     }
 }
 
@@ -381,7 +383,7 @@
 
     &:hover,
     &:focus {
-        background-color: #121212;
+        background-color: #FF6B01;
         color: #ffffff;
     }
 }

@@ -2,7 +2,6 @@ import refs from './refs';
 
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
-window.addEventListener('keydown', onEscBtnClick);
 
 function onCloseModal() {
     window.removeEventListener('keydown', onEscBtnClick)
@@ -15,8 +14,8 @@ function onBackdropClick(event) {
     }
 }
 
-function onEscBtnClick(event) {
+export default function onEscBtnClick(event) {
     if (event.code === 'Escape') {
         onCloseModal(event);
     }
-}
+} 
