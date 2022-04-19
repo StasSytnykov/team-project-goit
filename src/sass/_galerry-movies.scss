@@ -1,26 +1,28 @@
 .gallery-movies {
+  max-width: 320px;
+  margin: 20px auto 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-inline: auto;
+  gap: 20px;
 
-  @media screen and (min-width: 320px) and (max-width: 768px) {
-    max-width: 320px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+  @media screen and (min-width: 768px) {
+    margin-top: 60px;
     max-width: 768px;
+    gap: 32px;
   }
   @media screen and (min-width: 1024px) {
     max-width: 1024px;
-    justify-content: left;
+    gap: 32px 16px;
   }
 }
 
 .photo-card {
-  margin-top: 32px;
-  margin-left: 10px;
+  // margin-top: 32px;
+  // margin-left: 10px;
   width: 309px;
   height: 100%;
+  transition: transform 500ms ease-in-out;
 }
 
 .img-item {
@@ -39,7 +41,7 @@
   box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   transform: scale(1.05);
-  transition-duration: 500ms;
+  
 }
 
 a {
@@ -115,4 +117,3 @@ a {
   background-color: #2b3e88;
   transition: all 0.3s;
 }
-
