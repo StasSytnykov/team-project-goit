@@ -2,7 +2,6 @@
   margin: 0;
   padding: 40px 20px;
   box-sizing: border-box;
-  font-family: 'Roboto';
   align-items: center;
   font-style: normal;
   font-weight: 500;
@@ -32,7 +31,7 @@
 }
 
 .pagination__page {
-
+  
   color: #000000;
   width: 40px;
   height: 40px;
@@ -43,6 +42,11 @@
   border: none;
 }
 
+.current-page {
+    background: #ff6b08;
+    color: #ffffff;
+}
+
 .current-page,
 .before-page__before:hover,
 .before-page:hover,
@@ -50,10 +54,13 @@
 .after-page:hover,
 .first:hover,
 .last:hover,
-.pagination__arrow:hover {
+.pagination__arrow:hover
+ {
+  @media screen and (min-width: 768px) {
   background: #ff6b08;
   color: #ffffff;
   fill: #ffffff;
+  }
 }
 
 .dots-prev,
@@ -63,16 +70,24 @@
     cursor: none;
 }
 
-.pagination__arrow:hover>.pagination__arrow-svg {
-  fill: #ffffff;
+.last,
+.first {
+  align-items: center;
+  justify-content: center;
 }
-.hidden {
+
+.pagination__arrow:hover>.pagination__arrow-svg {
+  @media screen and (min-width: 768px) {
+  fill: #ffffff;
+  }
+}
+
+.dots-prev,.dots-last {
   display: none;
 
   @media screen and (min-width: 768px) {
     display: flex;
   }
-
 }
 
 .moon button {
@@ -94,7 +109,9 @@
 }
 
 .moon .pagination__arrow:hover {
+  @media screen and (min-width: 768px) {
   background: #ff6b08;
   color: #ffffff;
-  fill: #ffffff;
+  fill: #ffffff; 
+  }
 }
