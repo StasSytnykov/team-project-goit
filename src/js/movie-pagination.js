@@ -1,28 +1,28 @@
 import ApiService from './api-service';
 import { Pagination } from './pagination-class';
-// import { fetchPopularFilms } from './popularFilms';
-// import makeMovieMarkup from './moviesMarkup';
-// import refs from './refs';
+import refs from './refs';
 import { renderMovies } from './searchMovie';
 
-const prevPageRef = document.querySelector('.prev');
-const nextPageRef = document.querySelector('.next');
-const currentPageRef = document.querySelector('.current-page');
-const beforeCurrentPageRef = document.querySelector('.before-page');
-const afterCurrentPageRef = document.querySelector('.after-page');
-const beforeBeforeCurrentPageRef = document.querySelector('.before-page__before');
-const afterAfterCurrentPageRef = document.querySelector('.after-page__after');
-const firstPageRef = document.querySelector('.first');
-const lastPageRef = document.querySelector('.last');
-const prevDotsRef = document.querySelector('.dots-prev');
-const lastDotsRef = document.querySelector('.dots-last');
+refs.beforeCurrentPageRef.hidden = true;
+refs.prevPageRef.hidden = true;
+refs.beforeBeforeCurrentPageRef.hidden = true;
+refs.firstPageRef.hidden = true;
+refs.prevDotsRef.style.display = 'none';
+refs.lastDotsRef.style.display = 'flex';
 
-beforeCurrentPageRef.hidden = true;
-prevPageRef.hidden = true;
-beforeBeforeCurrentPageRef.hidden = true;
-firstPageRef.hidden = true;
-prevDotsRef.style.display = 'none';
-lastDotsRef.style.display = 'flex';
+ if (refs.mediaQuery.matches) {
+      refs.firstPageRef.hidden = true;
+ }
+
+if (refs.mediaQuery.matches) {
+      refs.lastPageRef.hidden = true;
+}
+if (refs.mediaQuery.matches) {
+  refs.lastDotsRef.style.display = 'none';
+}
+if (refs.mediaQuery.matches) {
+  refs.prevDotsRef.style.display = 'none';
+}
 
 const api = new ApiService();
 
@@ -30,101 +30,101 @@ export const moviePagination = new Pagination({
   total: 1000,
   onChange(value) {
     handlePageChange(value);
-    currentPageRef.textContent = value;
-    beforeCurrentPageRef.textContent = value - 1;
-    afterCurrentPageRef.textContent = value + 1;
-    beforeBeforeCurrentPageRef.textContent = value - 2;
-    afterAfterCurrentPageRef.textContent = value + 2;
-    lastPageRef.textContent = this.total;
+    refs.currentPageRef.textContent = value;
+    refs.beforeCurrentPageRef.textContent = value - 1;
+    refs.afterCurrentPageRef.textContent = value + 1;
+    refs.beforeBeforeCurrentPageRef.textContent = value - 2;
+    refs.afterAfterCurrentPageRef.textContent = value + 2;
+    refs.lastPageRef.textContent = this.total;
 
     if (value < 2) {
-      beforeCurrentPageRef.hidden = true;
-      prevPageRef.hidden = true;
+      refs.beforeCurrentPageRef.hidden = true;
+      refs.prevPageRef.hidden = true;
     } else {
-      beforeCurrentPageRef.hidden = false;
-      prevPageRef.hidden = false;
+      refs.beforeCurrentPageRef.hidden = false;
+      refs.prevPageRef.hidden = false;
     }
 
     if (value < 3) {
-      beforeBeforeCurrentPageRef.hidden = true;
-      firstPageRef.hidden = true;
+      refs.beforeBeforeCurrentPageRef.hidden = true;
+      refs.firstPageRef.hidden = true;
     } else {
-      beforeBeforeCurrentPageRef.hidden = false;
-      firstPageRef.hidden = false;
+      refs.beforeBeforeCurrentPageRef.hidden = false;
+      refs.firstPageRef.hidden = false;
     }
 
-    if (value < 4) {
-      firstPageRef.hidden = true;
+    if (value < 4 || refs.mediaQuery.matches) {
+      refs.firstPageRef.hidden = true;
     } else {
-      firstPageRef.hidden = false;
+      refs.firstPageRef.hidden = false;
     }
 
-    if (value < 5) {
-      prevDotsRef.style.display = 'none';
+    if (value < 5 || refs.mediaQuery.matches) {
+      refs.prevDotsRef.style.display = 'none';
     } else {
-      prevDotsRef.style.display = 'flex';
+      refs.prevDotsRef.style.display = 'flex';
     }
 
-    if (value > this.total - 1) {
-      lastPageRef.hidden = true;
+    if (value > this.total - 1 || refs.mediaQuery.matches) {
+      refs.lastPageRef.hidden = true;
     } else {
-      lastPageRef.hidden = false;
+      refs.lastPageRef.hidden = false;
     }
 
-    if (value > this.total - 4) {
-      lastDotsRef.style.display = 'none';
+    if (value > this.total - 4 || refs.mediaQuery.matches) {
+      refs.lastDotsRef.style.display = 'none';
     } else {
-      lastDotsRef.style.display = 'flex';
+      refs.lastDotsRef.style.display = 'flex';
     }
 
     if (value > this.total - 3) {
-      afterAfterCurrentPageRef.hidden = true;
+      refs.afterAfterCurrentPageRef.hidden = true;
     } else {
-      afterAfterCurrentPageRef.hidden = false;
+      refs.afterAfterCurrentPageRef.hidden = false;
     }
     if (value > this.total - 2) {
-      afterCurrentPageRef.hidden = true;
+      refs.afterCurrentPageRef.hidden = true;
     } else {
-      afterCurrentPageRef.hidden = false;
+      refs.afterCurrentPageRef.hidden = false;
     }
 
     if (value > this.total - 1) {
-      nextPageRef.hidden = true;
+      refs.nextPageRef.hidden = true;
     } else {
-      nextPageRef.hidden = false;
+      refs.nextPageRef.hidden = false;
     }
   },
 });
 
-nextPageRef.addEventListener('click', () => {
+refs.nextPageRef.addEventListener('click', () => {
   moviePagination.nextPage();
 });
 
-prevPageRef.addEventListener('click', () => {
+refs.prevPageRef.addEventListener('click', () => {
   moviePagination.prevPage();
 });
 
-beforeCurrentPageRef.addEventListener('click', () => {
+refs.beforeCurrentPageRef.addEventListener('click', () => {
   moviePagination.prevPage();
 });
 
-afterCurrentPageRef.addEventListener('click', () => {
+refs.afterCurrentPageRef.addEventListener('click', () => {
   moviePagination.nextPage();
 });
 
-beforeBeforeCurrentPageRef.addEventListener('click', () => {
+refs.beforeBeforeCurrentPageRef.addEventListener('click', () => {
   moviePagination.beforePrevPage();
 });
 
-afterAfterCurrentPageRef.addEventListener('click', () => {
+refs.afterAfterCurrentPageRef.addEventListener('click', () => {
   moviePagination.afterNextPage();
 });
 
-firstPageRef.addEventListener('click', () => {
+refs.firstPageRef.addEventListener('click', () => {
   moviePagination.firstPage();
 });
 
-lastPageRef.addEventListener('click', () => {
+refs.lastPageRef.addEventListener('click', () => {
   moviePagination.lastPage();
 });
 
