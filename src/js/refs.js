@@ -28,6 +28,18 @@ const refs = {
   tui: document.querySelector('.tui-pagination'),
   pagi: document.querySelector('.pagination__list'),
   pagidiv: document.querySelector('.pagination'),
+  prevPageRef: document.querySelector('.prev'),
+  nextPageRef: document.querySelector('.next'),
+  currentPageRef: document.querySelector('.current-page'),
+  beforeCurrentPageRef: document.querySelector('.before-page'),
+  afterCurrentPageRef: document.querySelector('.after-page'),
+  beforeBeforeCurrentPageRef: document.querySelector('.before-page__before'),
+  afterAfterCurrentPageRef: document.querySelector('.after-page__after'),
+  firstPageRef: document.querySelector('.first'),
+  lastPageRef: document.querySelector('.last'),
+  prevDotsRef: document.querySelector('.dots-prev'),
+  lastDotsRef: document.querySelector('.dots-last'),
+  mediaQuery: window.matchMedia('(max-width: 767px)'),
 };
 
 export default refs;
