@@ -12,6 +12,7 @@ refs.galleryMovies.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
   window.addEventListener('keydown', onEscBtnClick);
+  refs.body.style.overflow = 'hidden';
   if (e.target.className == 'gallery-movies') {
     return;
   }

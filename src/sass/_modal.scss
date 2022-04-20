@@ -59,6 +59,9 @@
     border: none;
     padding: 0;
     background-color: #fff;
+    transition: background-color 250ms ease-in-out, border-radius 250ms ease-in-out, box-shadow 250ms ease-in-out;
+    cursor: pointer;
+
 
     &:hover,
     &:focus {
@@ -361,6 +364,8 @@
 
 .dark .modal__close-btn {
     background-color: #FF6B01;
+    transition: background-color 250ms ease-in-out;
+
 
     &:hover,
     &:focus {
@@ -371,6 +376,8 @@
 
 .dark .modal_button-watch {
     background-color: #FF6B01;
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+
 
     &:hover,
     &:focus {
@@ -380,6 +387,7 @@
 }
 
 .dark .modal_button-queue {
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 
     &:hover,
     &:focus {
