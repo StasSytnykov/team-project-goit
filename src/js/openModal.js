@@ -13,10 +13,10 @@ refs.galleryMovies.addEventListener('click', onOpenModal);
 function onOpenModal(e) {
   window.addEventListener('keydown', onEscBtnClick);
   refs.body.style.overflow = 'hidden';
-  if (e.target.className == 'gallery-movies') {
+  if (!e.target.parentElement.parentElement.classList.contains('photo-card')) {
     return;
   }
-
+  // console.log(e.target);
   let idOfCard = e.target.closest('.photo-card').id;
   const fetchResponse = newFetchMovieById.fetchInfoOfFilm(idOfCard);
   renderMarkupOfModal(fetchResponse);
