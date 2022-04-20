@@ -1,5 +1,4 @@
 import refs from './refs';
-import { onCheckTheme } from './on-check-theme';
 
 const onOpenFooterModal = event => {
   event.preventDefault();

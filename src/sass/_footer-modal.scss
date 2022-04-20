@@ -13,6 +13,7 @@
   height: 100%;
   padding: 48px 20px 40px 20px;
   border-radius: 4px;
+  background-color: #fff;
 
   transition: transform 250ms ease-in-out;
 
@@ -34,16 +35,24 @@
   }
 }
 
+.dark .footer-modal {
+  background-color: #111;
+}
+
 .footer-modal__title {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
-  color: #fff;
+  color: #111;
   text-transform: uppercase;
 
   margin: 0 0 20px 0;
+}
+
+.dark .footer-modal__title {
+  color: #fff;
 }
 
 .footer-modal__close-btn {
@@ -66,5 +75,17 @@
 
   & .footer-modal__close-icon {
     display: block;
+  }
+}
+
+.dark .footer-modal__close-btn {
+  background-color: #ff6b08;
+  transition: background-color 250ms ease-in-out, box-shadow 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: #fff;
+    box-shadow: 0px 1px 3px 4px rgba(0, 0, 0, 0.12), 0px 1px 1px 2px rgba(0, 0, 0, 0.14),
+      0px 2px 1px 1px rgba(0, 0, 0, 0.2);
   }
 }
