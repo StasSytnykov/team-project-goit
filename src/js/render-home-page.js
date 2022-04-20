@@ -29,7 +29,7 @@ const onClickHomeBtn = event => {
   // document.removeEventListener('scroll', infiniteScroll, true);
   // fetchPopularFilms();
   temp();
-  // moviePagination.firstPage();
+  moviePagination.firstPage();
 };
 
 refs.homeLi.addEventListener('click', onClickHomeBtn);
