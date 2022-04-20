@@ -12,7 +12,7 @@ export function temp() {
   refs.headerBtn.forEach(el => el.classList.remove('active'));
   refs.pagidiv.style.display = 'block';
   document.removeEventListener('scroll', infiniteScroll, true);
-  localStorage.setItem('currentPage', 1);
+  // localStorage.setItem('currentPage', 1);
   moviePagination.currentPage = Number(localStorage.getItem('currentPage'));
   fetchPopularFilms(localStorage.getItem('currentPage'));
 }
