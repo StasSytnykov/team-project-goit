@@ -17,6 +17,14 @@ function makeMovieMarkup(movies) {
         id,
       }) => {
         let filteredGenresArr = 'Other';
+
+        if (genre_ids.length > 0) {
+          filteredGenresArr = genresArr
+            .filter(genreId => genre_ids.includes(genreId.id))
+            .map(genre => genre.name)
+            .join(', ');
+        }
+
         if (genres && genres.length > 0) {
           filteredGenresArr =
             genres
@@ -33,6 +41,7 @@ function makeMovieMarkup(movies) {
               .slice(0, 2)
               .join(', ') + ', Other';
         }
+        console.log(filteredGenresArr, name || title);
         let releaseYear = new Date(release_date).getFullYear();
         let alternativeDate = new Date(first_air_date).getFullYear();
         let poster = emptyImg;
