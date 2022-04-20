@@ -41,7 +41,6 @@ function makeMovieMarkup(movies) {
               .slice(0, 2)
               .join(', ') + ', Other';
         }
-        console.log(filteredGenresArr, name || title);
         let releaseYear = new Date(release_date).getFullYear();
         let alternativeDate = new Date(first_air_date).getFullYear();
         let poster = emptyImg;

@@ -23,8 +23,17 @@ export function libMain(str) {
   }
 
   refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+}
 
-  console.log(refs.watchedBtn.na);
+export function styling() {
+  refs.spanHome.style.display = 'none';
+  refs.spanLibrary.style.display = 'block';
+  refs.searchBtn.style.display = 'none';
+  refs.libraryBtnList.style.display = 'flex';
+  refs.containerHeader.classList.add('library-content');
+  refs.pagidiv.style.display = 'none';
+  refs.libraryBtnList.style.display = 'flex';
+  document.addEventListener('scroll', infiniteScroll, true);
 }
 
 function library(ev) {
@@ -35,23 +44,26 @@ function library(ev) {
     });
     ev.target.classList.add('active');
   }
+  localStorage.setItem('page', ev.target.name);
 
   libMain(ev.target.name);
 }
 
 function libraryClick(ev) {
   ev.preventDefault();
-  refs.spanHome.style.display = 'none';
-  refs.spanLibrary.style.display = 'block';
-  refs.searchBtn.style.display = 'none';
-  refs.libraryBtnList.style.display = 'flex';
-  refs.containerHeader.classList.add('library-content');
-  refs.pagidiv.style.display = 'none';
+  // refs.spanHome.style.display = 'none';
+  // refs.spanLibrary.style.display = 'block';
+  // refs.searchBtn.style.display = 'none';
+  // refs.libraryBtnList.style.display = 'flex';
+  // refs.containerHeader.classList.add('library-content');
+  // refs.pagidiv.style.display = 'none';
 
-  refs.libraryBtnList.style.display = 'flex';
+  // refs.libraryBtnList.style.display = 'flex';
+  // refs.watchedBtn.classList.add('active');
+  // document.addEventListener('scroll', infiniteScroll, true);
+  styling();
+  localStorage.setItem('page', 'watched');
   refs.watchedBtn.classList.add('active');
-  document.addEventListener('scroll', infiniteScroll, true);
-
   libMain('watched');
 }
 

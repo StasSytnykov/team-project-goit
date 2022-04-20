@@ -1,3 +1,4 @@
+import './js/reboot';
 import './sass/main.scss';
 import './js/api-service';
 import './js/library';
@@ -13,3 +14,4 @@ import './js/footer-modal';
 import './js/openModal';
 import './js/local-storage';
 import './js/pagination-library';
+import './js/reboot';

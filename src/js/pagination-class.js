@@ -13,6 +13,7 @@ export class Pagination {
 
   set currentPage(value) {
     this.#currentPage = value;
+    localStorage.setItem('currentPage', value);
 
     if (this.onChange) {
       this.onChange(value);

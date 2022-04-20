@@ -3,8 +3,7 @@ import { fetchPopularFilms } from './popularFilms';
 import infiniteScroll from './library';
 import { moviePagination } from './movie-pagination';
 
-const onClickHomeBtn = event => {
-  event.preventDefault();
+export function temp() {
   refs.spanHome.style.display = 'block';
   refs.spanLibrary.style.display = 'none';
   refs.searchBtn.style.display = 'block';
@@ -13,8 +12,24 @@ const onClickHomeBtn = event => {
   refs.headerBtn.forEach(el => el.classList.remove('active'));
   refs.pagidiv.style.display = 'block';
   document.removeEventListener('scroll', infiniteScroll, true);
-  fetchPopularFilms();
-  moviePagination.firstPage();
+  fetchPopularFilms(localStorage.getItem('currentPage'));
+}
+
+const onClickHomeBtn = event => {
+  event.preventDefault();
+  localStorage.setItem('page', 'home');
+  localStorage.setItem('currentPage', 1);
+  // refs.spanHome.style.display = 'block';
+  // refs.spanLibrary.style.display = 'none';
+  // refs.searchBtn.style.display = 'block';
+  // refs.libraryBtnList.style.display = 'none';
+  // refs.backgroundContent.classList.remove('library-content');
+  // refs.headerBtn.forEach(el => el.classList.remove('active'));
+  // refs.pagidiv.style.display = 'block';
+  // document.removeEventListener('scroll', infiniteScroll, true);
+  // fetchPopularFilms();
+  temp();
+  // moviePagination.firstPage();
 };
 
 refs.homeLi.addEventListener('click', onClickHomeBtn);

@@ -21,10 +21,8 @@ export default class ApiService {
   }
 
   async fetchMovieBySearch(page = 1) {
-    // return this.fetchMovies('search/movie', page);
     const resp = await this.fetchMovies('search/movie', page);
     ApiService.filmArr = resp.results;
-    console.log(ApiService.filmArr);
     return resp;
   }
 
