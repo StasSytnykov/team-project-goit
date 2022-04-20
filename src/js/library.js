@@ -10,26 +10,33 @@ const onPage = 10;
 let limit = 0;
 let data = [];
 
-function library(ev) {
-  if (ev.target.type !== 'button') return;
-
-  data = JSON.parse(localStorage.getItem(ev.target.name));
+export function libMain(str) {
+  data = JSON.parse(localStorage.getItem(str));
   ApiService.filmArr = data;
   limit = data ? data.length : 0;
   curPage = 1;
 
+  if (data && data.length > 0) {
+    const markup = makeMovieMarkup(data.slice(0, onPage));
+    refs.galleryMovies.innerHTML = markup;
+    return;
+  }
+
+  refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+
+  console.log(refs.watchedBtn.na);
+}
+
+function library(ev) {
+  if (ev.target.type !== 'button') return;
   if (!ev.target.classList.contains('active')) {
     refs.headerBtn.forEach(el => {
       el.classList.remove('active');
     });
     ev.target.classList.add('active');
   }
-  if (data && data.length > 0) {
-    const markup = makeMovieMarkup(data.slice(0, onPage));
-    refs.galleryMovies.innerHTML = markup;
-    return;
-  }
-  refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+
+  libMain(ev.target.name);
 }
 
 function libraryClick(ev) {
@@ -45,16 +52,7 @@ function libraryClick(ev) {
   refs.watchedBtn.classList.add('active');
   document.addEventListener('scroll', infiniteScroll, true);
 
-  curPage = 1;
-  data = JSON.parse(localStorage.getItem('watched'));
-  ApiService.filmArr = data;
-  limit = data ? data.length : 0;
-  if (data && data.length > 0) {
-    const markup = makeMovieMarkup(data.slice(0, onPage));
-    refs.galleryMovies.innerHTML = markup;
-    return;
-  }
-  refs.galleryMovies.innerHTML = '<p class="empty-library"> There are no films added.<p>';
+  libMain('watched');
 }
 
 export default function infiniteScroll() {

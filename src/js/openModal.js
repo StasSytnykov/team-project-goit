@@ -5,9 +5,6 @@ import emptyImg from './images/img_not_found.jpg';
 import LocalStorageService from '../js/local-storage';
 import oopsImg from './images/oops.png';
 import onEscBtnClick from './modal';
-// function onOpenCard(e) {
-//     if(e.curren)
-// }
 const newFetchMovieById = new ApiService();
 const localStorageService = new LocalStorageService();
 
