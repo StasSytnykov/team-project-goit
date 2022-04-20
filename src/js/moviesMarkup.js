@@ -5,33 +5,23 @@ import genresArr from './searchMovie';
 function makeMovieMarkup(movies) {
   return movies
     .map(
-      ({
-        title,
-        name,
-        release_date,
-        first_air_date,
-        genre_ids,
-        genres,
-        poster_path,
-        vote_average,
-        id,
-      }) => {
+      ({ title, name, release_date, first_air_date, genre_ids, poster_path, vote_average, id }) => {
         let filteredGenresArr = 'Other';
 
-        if (genre_ids.length > 0) {
+        if (genre_ids && genre_ids.length > 0) {
           filteredGenresArr = genresArr
             .filter(genreId => genre_ids.includes(genreId.id))
             .map(genre => genre.name)
             .join(', ');
         }
 
-        if (genres && genres.length > 0) {
-          filteredGenresArr =
-            genres
-              .reduce((acc, el) => [...acc, el.name], [])
-              .slice(0, 2)
-              .join(', ') + ', Other';
-        }
+        // if (genres && genres.length > 0) {
+        //   filteredGenresArr =
+        //     genres
+        //       .reduce((acc, el) => [...acc, el.name], [])
+        //       .slice(0, 2)
+        //       .join(', ') + ', Other';
+        // }
 
         if (genre_ids && genre_ids.length > 2) {
           filteredGenresArr =
