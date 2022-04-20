@@ -3,7 +3,7 @@ import { renderMovies } from './searchMovie';
 const api = new ApiService();
 import Pagination from 'tui-pagination';
 
-const options = {
+export const options = {
   totalItems: 500,
   itemsPerPage: 20,
   visiblePages: 5,
@@ -18,6 +18,7 @@ const instance = new Pagination(container, options);
 
 instance.on('afterMove', event => {
   const currentPage = event.page;
+  localStorage.setItem('currentPage', currentPage);
 
   api.fetchMovies('search/movie', currentPage).then(data => {
     const totalItems = data.total_pages * 20;

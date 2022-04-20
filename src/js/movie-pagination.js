@@ -10,12 +10,12 @@ refs.firstPageRef.hidden = true;
 refs.prevDotsRef.style.display = 'none';
 refs.lastDotsRef.style.display = 'flex';
 
- if (refs.mediaQuery.matches) {
-      refs.firstPageRef.hidden = true;
- }
+if (refs.mediaQuery.matches) {
+  refs.firstPageRef.hidden = true;
+}
 
 if (refs.mediaQuery.matches) {
-      refs.lastPageRef.hidden = true;
+  refs.lastPageRef.hidden = true;
 }
 if (refs.mediaQuery.matches) {
   refs.lastDotsRef.style.display = 'none';
@@ -137,6 +137,5 @@ const handlePageChange = currentPage => {
   });
 };
 
-api.fetchPopularMovie().then(data => {
-  renderMovies(data);
-});
+if (localStorage.getItem('page') === 'home')
+  moviePagination.currentPage = Number(localStorage.getItem('currentPage'));

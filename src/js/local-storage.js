@@ -82,6 +82,7 @@ export default class LocalStorageService {
     if ([...refs.headerBtn].filter(el => el.name === key)[0].classList.contains('active')) {
       libMain(key);
       refs.backdrop.classList.add('is-hidden');
+      refs.body.style.overflow = 'visible';
     }
   }
 
