@@ -5,7 +5,6 @@ const onOpenFooterModal = event => {
   refs.footerBackdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onCloseFooterModalOnEsc);
   refs.body.style.overflow = 'hidden';
-  onCheckTheme();
 };
 
 const onCloseFooterModal = () => {
